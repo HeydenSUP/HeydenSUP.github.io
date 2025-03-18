@@ -1,9 +1,17 @@
 body {
   background-color: rgb(247, 247, 220);
+  font-family: "Ponomar", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
-h1,
-h3 {
+h1 {
   color: lime;
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Ponomar", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 .blue-color {
   color: blue;

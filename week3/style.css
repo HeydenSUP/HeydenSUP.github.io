@@ -1,11 +1,6 @@
-/* h1 {
-  color: lime;
+body {
+  background-color: rgb(247, 247, 220);
 }
-
-h3 {
-  color: crimson;
-} */
-
 h1,
 h3 {
   color: lime;
@@ -17,27 +12,19 @@ h3 {
 #pink-color {
   color: pink;
 }
-/*  
-h1 {
-  color: red;
+.par3 {
+  color: rgb(199, 230, 168);
 }
 
-h2 {
-  color: green;
+section {
+  text-align: center;
+  border: 1px solid red;
 }
 
-p {
-  color: blue;
+.heading-border {
+  border: 3px dashed green;
 }
 
-li {
-  color: brown;
-}
-
-h3 {
-  color: violet;
-}
-*/
 /*
 curly bracss { }
 parentheses < >

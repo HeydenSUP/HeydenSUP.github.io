@@ -1,3 +1,32 @@
 h1 {
   color: aquamarine;
 }
+
+.jiao1 {
+  color: brown;
+  font-size: 50px;
+  background-color: rgb(174, 222, 135);
+}
+
+.jiao2 {
+  color: blue;
+  font-size: 60px;
+  background-color: azure;
+}
+
+.jiao3 {
+  color: darkgray;
+  font-size: 70px;
+  background-color: beige;
+}
+
+h2 {
+  color: aqua;
+}
+
+* {
+  background-color: cornflowerblue;
+}
+
+.box {
+}

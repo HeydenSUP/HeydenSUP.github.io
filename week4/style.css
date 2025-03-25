@@ -31,5 +31,5 @@ p {
 
 span {
   color: blueviolet;
-  display: none;
+  /* display: none; */
 }

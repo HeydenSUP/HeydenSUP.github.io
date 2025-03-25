@@ -12,18 +12,24 @@ h1 {
 }
 
 p {
-  border: 1px solid crimson;
+  border: 1px solid rgba(220, 20, 60, 0.326);
   width: 400px;
   min-height: 150px;
   margin: 0 auto;
   /*padding-left: 30px;
     padding-top: 40px;*/
-  /*T R B L*/
+  /*Top Right Bottom Left*/
   padding: 20px 30px 40px 50px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-bottom: 2px dashed rgba(0, 128, 0, 0.486);
 }
 
 .vcenter {
-  line-height: 400px;
+  line-height: 360px;
+}
+
+span {
+  color: blueviolet;
+  display: none;
 }

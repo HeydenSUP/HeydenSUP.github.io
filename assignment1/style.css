@@ -38,10 +38,13 @@ h2 {
   padding: 10px;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
+  overflow: visible;
 }
 
 .question-box header {
   font-size: 20px;
+  font-weight: bold;
   color: #444;
 }
 
@@ -49,10 +52,23 @@ h2 {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
+  height: 0;
+  opacity: 0;
+  padding: 0 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  z-index: 100;
 }
 
 .question-box:hover .response {
-  max-height: 200px;
+  max-height: 2000px;
+  padding: 0 10px;
+  height: auto;
+  opacity: 1;
 }
 
 ul {
@@ -66,4 +82,17 @@ li {
 p {
   color: #ccc;
   text-align: center;
+}
+
+.question-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.question-box:hover {
+  background-color: #e8e8e8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

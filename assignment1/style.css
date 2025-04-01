@@ -65,6 +65,7 @@ main {
   height: auto;
   opacity: 1;
 }
+/* I learned this transition coding on video, and I use this coding because I think the way the answer appears below the question box makes my page look neater. */
 
 ul {
   list-style-type: none;

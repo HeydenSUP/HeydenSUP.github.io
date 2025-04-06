@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header {
+  background-color: #2d3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.seasons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.season {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.season h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.season:hover {
+  transform: scale(1.1);
+}
+
+.spring {
+  background-color: #a8e6cf;
+}
+
+.summer {
+  background-color: #ffeb3b;
+}
+
+.autumn {
+  background-color: #ff7043;
+}
+
+.winter {
+  background-color: #b3e5fc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2d3e50;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

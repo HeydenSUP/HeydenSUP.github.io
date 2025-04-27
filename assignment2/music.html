@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>welcome to music page</header>
+    <main class="container">
+      <section class="music-player-section">
+        <h2>Relaxing Study Music</h2>
+        <div class="theme-toggle">
+          <button id="toggle-theme-btn">Night Mode</button>
+        </div>
+        <div class="music-banner">
+          <img id="banner-img" src="studyy.jpg" alt="relaxing banner" />
+        </div>
+        <audio id="music-player" autoplay loop>
+          <source src="relstu.mp3" type="audio/mp3" />
+        </audio>
+        <!--my own control button-->
+        <div class="music-custom-controls">
+          <button id="play-btn">
+            <img src="play.png" alt="play Icon" width="40" height="40" />
+          </button>
+          <button id="pause-btn">
+            <img src="pause.png" alt="pause Icon" width="40" height="40" />
+          </button>
+        </div>
+        <div class="music-time-display">
+          <span id="current-time">00.00</span> /
+          <span id="total-duration">00.00</span>
+        </div>
+        <div class="music-progress-bar">
+          <span id="music-progress-fill"></span>
+        </div>
+      </section>
+      <div class="back-home">
+        <a href="index.html" class="back-button">← Back to home</a>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>

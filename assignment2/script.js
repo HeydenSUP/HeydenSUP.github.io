@@ -20,6 +20,7 @@ function updateProgressBar() {
 }
 // Add other functionalities here
 document.addEventListener("DOMContentLoaded", function () {
+  //i hid the original player and made one myself
   const audio = document.getElementById("music-player");
   const playBtn = document.getElementById("play-btn");
   const pauseBtn = document.getElementById("pause-btn");
@@ -28,15 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentTimeEl = document.getElementById("current-time");
   const totalDurationEl = document.getElementById("total-duration");
   const bannerImg = document.getElementById("banner-img");
+  //  const themeToggleBtn = document.getElementById("toggle-theme-btn");
+
   pauseBtn.style.display = "inline-block";
   playBtn.style.display = "none";
+
   playBtn.addEventListener("click", function () {
     audio.play();
     playBtn.style.display = "none";
     pauseBtn.style.display = "inline-block";
     bannerImg.classList.add("shaking");
   });
-
   pauseBtn.addEventListener("click", function () {
     audio.pause();
     pauseBtn.style.display = "none";
@@ -61,16 +64,15 @@ function formatTime(time) {
     "0"
   )}`;
 }
-const themeToggleBtn = document.getElementById("toggle-theme-btn");
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener("click", function () {
-    document.body.classList.toogle("dark-mode");
-    document.body.classList.toggle("light-mode");
 
-    if (document.body.classList.contains(dark - mode)) {
-      themeToggleBtn.textContent = "Light Mode";
-    } else {
-      themeToggleBtn.textContent = "Night Mode";
-    }
-  });
-}
+//if (themeToggleBtn) {
+//  themeToggleBtn.addEventListener("click", function () {
+//    document.body.classList.toogle("dark-mode");
+//    document.body.classList.toggle("light-mode");
+//    if (document.body.classList.contains('dark-mode')) {
+//      themeToggleBtn.textContent = "Light Mode";
+//    } else {
+//      themeToggleBtn.textContent = "Night Mode";
+//    }
+//  });
+//}

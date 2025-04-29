@@ -95,3 +95,23 @@ if (fullscreenBtn && fullscreenIcon && playerContainer) {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const starsContainer = document.getElementById("stars-container");
+
+  function createStar() {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.animationDuration = 3 + Math.random() * 5 + "s";
+    star.style.opacity = Math.random() * 0.5 + 0.3;
+    star.style.fontSize = Math.random() * 10 + 6 + "px";
+    starsContainer.appendChild(star);
+
+    setTimeout(() => {
+      star.remove();
+    }, 8000);
+  }
+
+  setInterval(createStar, 300);
+});

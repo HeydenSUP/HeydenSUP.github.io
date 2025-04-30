@@ -1,3 +1,5 @@
+/* Theme Variables
+Define the core color palette and reuse-friendly variables*/
 :root {
   --main-pink: #f8c3d4;
   --hover-pink: #f093b0;
@@ -20,7 +22,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-
+/*Background: pink-to-green gradient with centered flex layout */
 body {
   font-family: "poppins", sans-serif;
   background: linear-gradient(135deg, #f8c3d4, rgb(38, 124, 103));

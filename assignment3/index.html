@@ -1,0 +1,35 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eb-shop</title>
+    <!-- Link external stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="header">
+      <div class="logo">MyShop</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." />
+      </div>
+      <div
+        class="cart"
+        id="cart"
+        onclick="viewCart()"
+        ondragover="allowDrop(event)"
+        ondrop="dropToCart(event)"
+      >
+        🛒<span class="cart-count" id="cart-count">0</span>
+      </div>
+    </div>
+
+    <!-- Main Product Grid -->
+    <div class="product-grid" id="product-grid"></div>
+
+    <!-- Link external script -->
+    <script src="script.js"></script>
+  </body>
+</html>

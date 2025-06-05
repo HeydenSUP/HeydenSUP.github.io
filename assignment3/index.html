@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!--About the search bar is there plus keyword linkage, you can try to search 'ipad' will be more intuitive!-->
     <div class="header">
-      <div class="logo">EB-Shop</div>
+      <div class="logo">MyShop</div>
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Search products..." />
       </div>
@@ -16,6 +17,7 @@
         class="cart"
         id="cart"
         tabindex="0"
+        onclick="window.location.href='cart.html';"
         ondragover="allowDrop(event)"
         ondrop="dropToCart(event)"
       >

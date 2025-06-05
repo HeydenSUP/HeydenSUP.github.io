@@ -1,26 +1,92 @@
+// Commodity data
 const products = [
-  { id: 1, name: "Wireless Headphones", price: 59.99, image: "headphone.jpg" },
-  { id: 2, name: "Portable Speaker", price: 29.99, image: "22.jpg" },
-  { id: 3, name: "Smart Watch", price: 99.99, image: "33.jpg" },
-  { id: 4, name: "Digital Camera", price: 149.99, image: "44.jpg" },
-  { id: 5, name: "iPad", price: 399.99, image: "55.jpg" },
-  { id: 6, name: "iPad Case", price: 29.99, image: "66.jpg" },
+  {
+    id: 1,
+    name: "Wireless Headphones",
+    price: 59.99,
+    image: "headphone.jpg",
+    description:
+      "High-fidelity wireless headphones with noise-cancelling and 30-hour battery life. Perfect for music, games, and calls.",
+  },
+  {
+    id: 2,
+    name: "Portable Speaker",
+    price: 29.99,
+    image: "22.jpg",
+    description:
+      "Compact Bluetooth speaker with deep bass and water-resistant design. Take your music anywhere, anytime!",
+  },
+  {
+    id: 3,
+    name: "Smart Watch",
+    price: 99.99,
+    image: "33.jpg",
+    description:
+      "Sleek smart watch with heart-rate monitor, fitness tracking, notifications, and customizable watch faces.",
+  },
+  {
+    id: 4,
+    name: "Digital Camera",
+    price: 149.99,
+    image: "44.jpg",
+    description: "Digital camera with 24MP resolution and 4K video recording.",
+  },
+  {
+    id: 5,
+    name: "iPad",
+    price: 399.99,
+    image: "55.jpg",
+    description: "10.2-inch Apple iPad, latest model, Wi-Fi.",
+  },
+  {
+    id: 6,
+    name: "iPad Case",
+    price: 29.99,
+    image: "66.jpg",
+    description: "Protective iPad case, shockproof.",
+  },
   {
     id: 7,
     name: "Bluetooth Keyboard",
     price: 45.99,
     image:
       "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/multi-keyboard-k380/gallery/k380-sand-gallery-2-us.png",
+    description: "Wireless Bluetooth keyboard for tablets and laptops.",
   },
-  { id: 8, name: "USB-C Charger", price: 25.5, image: "77.jpg" },
-  { id: 9, name: "Fitness Tracker Watch", price: 79.9, image: "88.jpg" },
+  {
+    id: 8,
+    name: "USB-C Charger",
+    price: 25.5,
+    image: "77.jpg",
+    description: "Fast USB-C wall charger for multiple devices.",
+  },
+  {
+    id: 9,
+    name: "Fitness Tracker Watch",
+    price: 79.9,
+    image: "88.jpg",
+    description: "Fitness tracker watch with heart rate monitor.",
+  },
 ];
 
-// 购物车数据
-let cartItems = [];
 let currentSearchKeyword = "";
 
-// 渲染商品网格（支持筛选）
+// Tool function: localStorage global cart synchronization
+function loadCart() {
+  let ids = [];
+  try {
+    ids = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  } catch {}
+  return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean);
+}
+function saveCart(cartItems) {
+  localStorage.setItem(
+    "cartItems",
+    JSON.stringify(cartItems.map((item) => item.id))
+  );
+}
+
+// Rendering the product mesh
 function renderProductGrid(productList) {
   const grid = document.getElementById("product-grid");
   grid.innerHTML = "";
@@ -51,16 +117,20 @@ function renderProductGrid(productList) {
     priceEl.innerText = `$${product.price.toFixed(2)}`;
     info.appendChild(priceEl);
 
+    // Detail Page Jump
     const viewBtn = document.createElement("button");
     viewBtn.className = "btn btn-view";
     viewBtn.innerText = "View Details";
-    viewBtn.onclick = () => console.log("Viewing details for", product);
+    viewBtn.onclick = () =>
+      (window.location.href = `product.html?id=${product.id}`);
     info.appendChild(viewBtn);
 
     const addBtn = document.createElement("button");
     addBtn.className = "btn btn-add";
     addBtn.innerText = "Add to Cart";
-    addBtn.onclick = () => addToCart(product);
+    addBtn.onclick = () => {
+      addToCart(product);
+    };
     info.appendChild(addBtn);
 
     card.appendChild(info);
@@ -68,13 +138,14 @@ function renderProductGrid(productList) {
   });
 }
 
-// 渲染购物车下拉内容和数量（含高亮搜索匹配项）
+// Render cart dropdown content and quantity (always globally synchronize localStorage)
 function updateCartDisplay() {
+  const cartItems = loadCart();
   document.getElementById("cart-count").innerText = cartItems.length;
   const cartDropdown = document.getElementById("cart-dropdown");
   cartDropdown.innerHTML = "";
 
-  // 匹配关键词的cart商品优先高亮显示
+  // Priority highlighting of cart items matching keywords
   let matchedItems = [];
   let otherItems = [];
   if (currentSearchKeyword) {
@@ -94,7 +165,7 @@ function updateCartDisplay() {
     el.className = "cart-item matched-item";
     el.innerHTML = `
       <strong>${item.name}</strong> - <strong>$${item.price.toFixed(2)}</strong>
-      <button onclick="removeFromCart(${cartItems.indexOf(item)})">❌</button>
+      <button onclick="removeFromCart(${loadCart().indexOf(item)})">❌</button>
     `;
     cartDropdown.appendChild(el);
   });
@@ -104,7 +175,7 @@ function updateCartDisplay() {
     el.className = "cart-item";
     el.innerHTML = `
       ${item.name} - $${item.price.toFixed(2)}
-      <button onclick="removeFromCart(${cartItems.indexOf(item)})">❌</button>
+      <button onclick="removeFromCart(${loadCart().indexOf(item)})">❌</button>
     `;
     cartDropdown.appendChild(el);
   });
@@ -114,19 +185,23 @@ function updateCartDisplay() {
   }
 }
 
-// 加入购物车
+// Global Add to Cart
 function addToCart(product) {
+  let cartItems = loadCart();
   cartItems.push(product);
+  saveCart(cartItems);
   updateCartDisplay();
 }
 
-// 删除购物车商品
+// Global Delete Cart
 function removeFromCart(index) {
+  let cartItems = loadCart();
   cartItems.splice(index, 1);
+  saveCart(cartItems);
   updateCartDisplay();
 }
 
-// 拖拽购物车相关
+// Drag & Drop Shopping Cart
 function allowDrop(event) {
   event.preventDefault();
   document.getElementById("cart").classList.add("drag-over");
@@ -141,7 +216,7 @@ function dropToCart(event) {
   }
 }
 
-// 购物车hover下拉显示控制（防止消失）
+// Shopping cart hover dropdown display control
 const cart = document.getElementById("cart");
 const cartDropdown = document.getElementById("cart-dropdown");
 let cartDropdownTimer = null;
@@ -149,6 +224,7 @@ let cartDropdownTimer = null;
 cart.addEventListener("mouseenter", () => {
   clearTimeout(cartDropdownTimer);
   cartDropdown.style.display = "block";
+  updateCartDisplay();
 });
 cart.addEventListener("mouseleave", () => {
   cartDropdownTimer = setTimeout(() => {
@@ -165,12 +241,7 @@ cartDropdown.addEventListener("mouseleave", () => {
   }, 150);
 });
 
-// 查看购物车
-function viewCart() {
-  alert("You have " + cartItems.length + " items in your cart.");
-}
-
-// 搜索功能：输入时实时筛选，按Enter清空并恢复全部，同时用于高亮
+// search function
 const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("input", function () {
   currentSearchKeyword = this.value.trim().toLowerCase();
@@ -189,6 +260,6 @@ searchInput.addEventListener("keydown", function (event) {
   }
 });
 
-// 初始化
+// initialization
 renderProductGrid(products);
 updateCartDisplay();

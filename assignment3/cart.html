@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .cart-page-wrapper {
+        max-width: 820px;
+        margin: 48px auto 24px auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px #e0e0e2;
+        padding: 40px 32px 32px 32px;
+        min-height: 360px;
+      }
+      .cart-page-title {
+        font-size: 2.1em;
+        color: #635dff;
+        margin-bottom: 24px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 26px;
+      }
+      .cart-table th,
+      .cart-table td {
+        padding: 14px 9px;
+        text-align: left;
+        border-bottom: 1px solid #f3f3f6;
+        font-size: 1.08em;
+      }
+      .cart-table th {
+        background: #f6f6fa;
+        font-weight: 700;
+        color: #635dff;
+        letter-spacing: 0.5px;
+      }
+      .cart-table img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1.5px solid #eee;
+      }
+      .cart-table .cart-remove-btn {
+        color: #fd297b;
+        background: none;
+        border: none;
+        font-size: 1.15em;
+        cursor: pointer;
+        padding: 0 6px;
+        transition: color 0.16s;
+      }
+      .cart-table .cart-remove-btn:hover {
+        color: #635dff;
+        text-decoration: underline;
+      }
+      .cart-total-row td {
+        font-weight: bold;
+        color: #fd297b;
+        font-size: 1.19em;
+        border-bottom: none;
+      }
+      .cart-page-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 24px;
+      }
+      .cart-page-btn {
+        padding: 12px 28px;
+        font-size: 1.08em;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        background: linear-gradient(90deg, #635dff 60%, #fd297b 100%);
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.18s;
+        margin-right: 18px;
+        box-shadow: 0 2px 10px #d6d6ff40;
+      }
+      .cart-page-btn:hover {
+        background: linear-gradient(90deg, #4845e4 60%, #e71056 100%);
+      }
+      .cart-page-link {
+        font-size: 1.02em;
+        color: #635dff;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .money-emoji {
+        position: absolute;
+        font-size: 2em;
+        pointer-events: none;
+        will-change: transform, opacity;
+        opacity: 0.85;
+        z-index: 1000;
+        animation: fly-money 1.2s forwards;
+      }
+      @keyframes fly-money {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        80% {
+          opacity: 0.95;
+          transform: translateY(var(--y)) translateX(var(--x)) rotate(var(--r))
+            scale(1.2);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(calc(var(--y) * 1.4))
+            translateX(calc(var(--x) * 1.4)) scale(0.7);
+        }
+      }
+      @media (max-width: 900px) {
+        .cart-page-wrapper {
+          padding: 20px 4px;
+        }
+        .cart-table th,
+        .cart-table td {
+          padding: 8px 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart-page-wrapper">
+      <div class="cart-page-title">Your Cart</div>
+      <div id="cart-table-wrapper"></div>
+      <div class="cart-page-actions">
+        <a href="index.html" class="cart-page-link">&larr; Continue Shopping</a>
+        <button class="cart-page-btn" onclick="checkoutCart()">Checkout</button>
+      </div>
+    </div>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Wireless Headphones",
+          price: 59.99,
+          image: "headphone.jpg",
+          description:
+            "High-fidelity wireless headphones with noise-cancelling and 30-hour battery life. Perfect for music, games, and calls.",
+        },
+        {
+          id: 2,
+          name: "Portable Speaker",
+          price: 29.99,
+          image: "22.jpg",
+          description:
+            "Compact Bluetooth speaker with deep bass and water-resistant design. Take your music anywhere, anytime!",
+        },
+        {
+          id: 3,
+          name: "Smart Watch",
+          price: 99.99,
+          image: "33.jpg",
+          description:
+            "Sleek smart watch with heart-rate monitor, fitness tracking, notifications, and customizable watch faces.",
+        },
+        {
+          id: 4,
+          name: "Digital Camera",
+          price: 149.99,
+          image: "44.jpg",
+          description:
+            "Digital camera with 24MP resolution and 4K video recording.",
+        },
+        {
+          id: 5,
+          name: "iPad",
+          price: 399.99,
+          image: "55.jpg",
+          description: "10.2-inch Apple iPad, latest model, Wi-Fi.",
+        },
+        {
+          id: 6,
+          name: "iPad Case",
+          price: 29.99,
+          image: "66.jpg",
+          description: "Protective iPad case, shockproof.",
+        },
+        {
+          id: 7,
+          name: "Bluetooth Keyboard",
+          price: 45.99,
+          image:
+            "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/multi-keyboard-k380/gallery/k380-sand-gallery-2-us.png.jpg",
+          description: "Wireless Bluetooth keyboard for tablets and laptops.",
+        },
+        {
+          id: 8,
+          name: "USB-C Charger",
+          price: 25.5,
+          image: "77.jpg",
+          description: "Fast USB-C wall charger for multiple devices.",
+        },
+        {
+          id: 9,
+          name: "Fitness Tracker Watch",
+          price: 79.9,
+          image: "88.jpg",
+          description: "Fitness tracker watch with heart rate monitor.",
+        },
+      ];
+
+      function loadCart() {
+        let ids = [];
+        try {
+          ids = JSON.parse(localStorage.getItem("cartItems") || "[]");
+        } catch {}
+        return ids
+          .map((id) => products.find((p) => p.id === id))
+          .filter(Boolean);
+      }
+      function saveCart(cartItems) {
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify(cartItems.map((item) => item.id))
+        );
+      }
+
+      function renderCartPage() {
+        const cart = loadCart();
+        const wrapper = document.getElementById("cart-table-wrapper");
+        if (cart.length === 0) {
+          wrapper.innerHTML = `<p style="text-align:center;font-size:1.18em;margin:44px 0;">Your cart is empty.</p>`;
+          return;
+        }
+
+        let total = 0;
+        let rows = cart
+          .map((item, idx) => {
+            total += item.price;
+            return `<tr>
+          <td><img src="${item.image}" alt="${item.name}"></td>
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>
+            <button class="cart-remove-btn" onclick="removeFromCart(${idx})">❌ Remove</button>
+          </td>
+        </tr>`;
+          })
+          .join("");
+
+        wrapper.innerHTML = `
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+            <tr class="cart-total-row">
+              <td colspan="2">Total</td>
+              <td colspan="2">$${total.toFixed(2)}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+      }
+
+      function removeFromCart(idx) {
+        let cart = loadCart();
+        cart.splice(idx, 1);
+        saveCart(cart);
+        renderCartPage();
+      }
+
+      function checkoutCart() {
+        let cart = loadCart();
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+        alert("Order placed! (This is a demo)");
+        // Empty cart
+        localStorage.setItem("cartItems", "[]");
+        renderCartPage();
+      }
+
+      // Rendering after page load
+      renderCartPage();
+    </script>
+  </body>
+</html>

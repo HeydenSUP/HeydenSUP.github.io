@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Persona Slider Chat</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #eceff1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        width: 600px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+      }
+      h2 {
+        margin-top: 0;
+        color: #333;
+      }
+      .chat-box {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+        overflow-y: auto;
+      }
+      .msg {
+        max-width: 70%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        line-height: 1.5em;
+        font-size: 1em;
+        position: relative;
+      }
+      .user {
+        align-self: flex-end;
+        background: #2979ff;
+        color: #fff;
+      }
+      .ai {
+        align-self: flex-start;
+        background: #e0e0e0;
+        color: #000;
+      }
+      .ai::before {
+        content: "🤖";
+        position: absolute;
+        top: -22px;
+        left: 10px;
+        font-size: 18px;
+      }
+      .sliders {
+        margin-top: 10px;
+      }
+      .slider-block {
+        margin: 12px 0;
+      }
+      .slider-block label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>AI Persona Chat Demo</h2>
+      <div class="chat-box" id="chatBox">
+        <div class="msg user">
+          <strong>You:</strong> I just lost my job, I feel so lost. What should
+          I do?
+        </div>
+      </div>
+
+      <div class="sliders">
+        <div class="slider-block">
+          <label for="tone">Tone (0 = Empathetic, 1 = Neutral, 2 = Cold)</label>
+          <input type="range" min="0" max="2" value="0" id="tone" />
+        </div>
+        <div class="slider-block">
+          <label for="stance"
+            >Stance (0 = Conservative, 1 = Balanced, 2 = Open)</label
+          >
+          <input type="range" min="0" max="2" value="1" id="stance" />
+        </div>
+        <div class="slider-block">
+          <label for="goal"
+            >Goal (0 = Accurate, 1 = Balanced, 2 = Creative)</label
+          >
+          <input type="range" min="0" max="2" value="0" id="goal" />
+        </div>
+        <button id="generateBtn">Generate AI Response</button>
+      </div>
+    </div>
+
+    <script>
+      const toneSlider = document.getElementById("tone");
+      const stanceSlider = document.getElementById("stance");
+      const goalSlider = document.getElementById("goal");
+      const chatBox = document.getElementById("chatBox");
+      const generateBtn = document.getElementById("generateBtn");
+
+      function generateResponse() {
+        let tone = parseInt(toneSlider.value);
+        let stance = parseInt(stanceSlider.value);
+        let goal = parseInt(goalSlider.value);
+
+        let responses = {
+          empathetic:
+            "I understand your feelings, this must be very difficult. Take a deep breath — we can think about small steps together.",
+          neutral:
+            "Losing a job is common. Next steps include reviewing finances and searching for opportunities.",
+          cold: "Statistically, job loss requires immediate financial adjustment and active job applications.",
+          conservative:
+            "Stick to proven methods — polish your CV and apply to stable industries first.",
+          balanced:
+            "Balance security and exploration — apply to safe jobs while testing new fields.",
+          open: "Take this chance to reinvent yourself — maybe try freelancing or launching a new idea.",
+          accurate:
+            "Based on studies, networking is one of the most effective strategies for re-employment.",
+          creative:
+            "Why not write about your experience in a blog? It could help you reflect and even attract opportunities.",
+        };
+
+        let result = "";
+        if (tone === 0) result += responses.empathetic + " ";
+        if (tone === 1) result += responses.neutral + " ";
+        if (tone === 2) result += responses.cold + " ";
+
+        if (stance === 0) result += responses.conservative + " ";
+        if (stance === 1) result += responses.balanced + " ";
+        if (stance === 2) result += responses.open + " ";
+
+        if (goal === 0) result += responses.accurate;
+        if (goal === 2) result += responses.creative;
+
+        // 新建一个 AI 消息气泡
+        const aiMsg = document.createElement("div");
+        aiMsg.className = "msg ai";
+        aiMsg.innerText = result.trim();
+        chatBox.appendChild(aiMsg);
+
+        // 自动滚动到最底部
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      generateBtn.addEventListener("click", generateResponse);
+    </script>
+  </body>
+</html>

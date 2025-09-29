@@ -75,6 +75,19 @@
       input[type="range"] {
         width: 100%;
       }
+      button {
+        margin-top: 10px;
+        padding: 10px 16px;
+        border: none;
+        background: #2979ff;
+        color: white;
+        font-size: 1em;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1565c0;
+      }
     </style>
   </head>
   <body>
@@ -149,14 +162,21 @@
         if (goal === 0) result += responses.accurate;
         if (goal === 2) result += responses.creative;
 
-        // 新建一个 AI 消息气泡
+        // 打字机动画
         const aiMsg = document.createElement("div");
         aiMsg.className = "msg ai";
-        aiMsg.innerText = result.trim();
         chatBox.appendChild(aiMsg);
 
-        // 自动滚动到最底部
-        chatBox.scrollTop = chatBox.scrollHeight;
+        let i = 0;
+        const text = result.trim();
+        const interval = setInterval(() => {
+          aiMsg.innerText = text.slice(0, i);
+          i++;
+          if (i > text.length) {
+            clearInterval(interval);
+          }
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 40); // 每40毫秒打一个字
       }
 
       generateBtn.addEventListener("click", generateResponse);

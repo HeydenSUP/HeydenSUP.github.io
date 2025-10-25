@@ -1,100 +1,103 @@
-/* Global layout */
-* {
+html,
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Segoe UI", sans-serif;
-  overflow: hidden;
-  background: linear-gradient(#7dd3fc, #1e3a8a);
+  height: 100%;
+  overflow: hidden; /* keep the viewport fixed; no scrollbars */
+  font-family: Helvetica, Arial, sans-serif;
+  background: linear-gradient(#7dd3fc, #1e3a8a); /* Scene 1: calm ocean */
   color: white;
-  transition: background 2s ease;
+  transition: background 2s ease; /* smooth gradient transition when scene changes */
 }
-#scene {
+
+/* The wrapper keeps everything centered and layered */
+#wrapper {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* Text */
-#textBox {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   text-align: center;
-  width: 70%;
-}
-h1 {
-  font-size: 34px;
-  margin-bottom: 8px;
-}
-p {
-  font-size: 18px;
 }
 
-/* Buttons */
-#choices {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+/* Titles and scene description text */
+#sceneTitle {
+  font-size: 2.5em;
+  margin-top: 40px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
-button {
+
+#sceneDesc {
+  font-size: 1.2em;
+  width: 60%;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+/* Buttons for interactivity */
+#choices button {
   background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
   color: white;
-  border: none;
-  padding: 12px 28px;
-  margin: 8px;
-  border-radius: 8px;
-  font-size: 16px;
+  font-size: 1.1em;
+  padding: 10px 18px;
+  margin: 10px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
-}
-button:hover {
-  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
 }
 
-/* Transition fade overlay */
-#transition {
+#choices button:hover {
+  background: white;
+  color: #0c4a6e;
+  transform: scale(1.1);
+}
+
+/*  SCENE STRUCTURE */
+
+#scene {
   position: absolute;
-  inset: 0;
-  background: black;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.2s ease;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* contain bubbles and fragments */
 }
 
-/* Submarine */
+/* The submarine container is centered using translate */
 #submarine {
   position: absolute;
+  top: 50%;
   left: 50%;
-  top: 60%;
   transform: translate(-50%, -50%);
-  width: 180px;
+  width: 160px;
   height: 80px;
-  animation: float 3s ease-in-out infinite;
+  z-index: 5; /* always above bubbles but below text */
+  transition: transform 1s ease;
 }
-.body {
+
+/* The yellow main body */
+#submarine .body {
   position: absolute;
-  width: 180px;
-  height: 80px;
-  background: #ffd84b;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  background: #ffd84b; /* bright yellow body */
+  border-radius: 40px; /* round shape */
+  box-shadow: inset -5px 0 0 rgba(0, 0, 0, 0.2);
 }
-.window {
+
+/* The submarine window (cute circular viewport) */
+#submarine .window {
   position: absolute;
-  left: 25px;
-  top: 20px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: radial-gradient(circle, #b6e9ff 10%, #2196f3 90%);
-  border: 3px solid #fcd34d;
+  background: #6ec6ff;
+  top: 25px;
+  left: 50px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
 }
-.tail {
+
+/* The tail fin — small triangle to the right */
+#submarine .tail {
   position: absolute;
   right: -20px;
   top: 25px;
@@ -102,219 +105,183 @@ button:hover {
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-left: 20px solid #ffd84b;
-  transform: scaleX(-1);
-  left: -20px;
-  right: auto;
+  border-left: 20px solid #ffd84b; /* triangle facing right */
 }
-.propeller {
+
+/* Submarine light (used in deeper scenes) */
+#submarine .light {
   position: absolute;
-  left: -12px;
-  top: 33px;
-  width: 10px;
-  height: 10px;
-  background: #fef3c7;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 204, 0.9),
+    rgba(255, 255, 153, 0.1)
+  );
   border-radius: 50%;
-  animation: spin 0.3s linear infinite;
-}
-/* spotlight for deep scenes */
-.light {
-  position: absolute;
-  right: -20px;
-  top: 15px;
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 50px solid rgba(255, 255, 200, 0.2);
-  opacity: 0;
-  transition: opacity 1s;
+  bottom: 15px;
+  left: 10px;
+  opacity: 0; /* turned off in Scene 1 */
+  transition: opacity 1s ease;
 }
 
-/* Variations */
-.scene3 #submarine .body {
-  filter: brightness(0.8);
-  animation: drift 5s ease-in-out infinite;
-}
-.scene4 #submarine .body {
-  filter: brightness(0.5) contrast(1.2);
-}
-.scene5 #submarine .body {
-  filter: brightness(1.1);
+/* Submarine gently dives downward */
+.diveAnim {
+  animation: diveMotion 5s infinite ease-in-out alternate;
 }
 
-/* Floating / drifting animations */
-@keyframes float {
+@keyframes diveMotion {
+  0% {
+    transform: translate(-50%, -48%);
+  }
+  100% {
+    transform: translate(-50%, -52%);
+  }
+}
+
+/* Submarine shakes (used for Break Through) */
+.shakeAnim {
+  animation: shakeMotion 0.5s infinite;
+}
+
+@keyframes shakeMotion {
   0%,
   100% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
     transform: translate(-50%, -48%);
   }
   50% {
     transform: translate(-50%, -52%);
   }
-}
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(-50%, -50%);
-  }
-  50% {
-    transform: translate(-52%, -50%);
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Dive, Ascend, Shake */
-.diveAnim {
-  animation: dive 2s ease forwards;
-}
-.ascendAnim {
-  animation: ascend 2s ease forwards;
-}
-.shakeAnim {
-  animation: shake 0.5s ease-in-out 5;
-}
-@keyframes dive {
-  from {
-    transform: translate(-50%, -50%);
-  }
-  to {
-    transform: translate(-50%, -30%);
-  }
-}
-@keyframes ascend {
-  from {
-    transform: translate(-50%, -50%);
-  }
-  to {
-    transform: translate(-50%, -70%);
-  }
-}
-@keyframes shake {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) rotate(0);
-  }
-  25% {
-    transform: translate(-51%, -49%) rotate(-2deg);
-  }
-  50% {
-    transform: translate(-49%, -51%) rotate(2deg);
-  }
   75% {
-    transform: translate(-50%, -49%) rotate(-1deg);
+    transform: translate(-50%, -49%);
   }
 }
 
-/* Monster */
+/* Submarine ascends smoothly toward the top */
+.ascendAnim {
+  animation: ascendMotion 4s forwards ease-in-out;
+}
+
+@keyframes ascendMotion {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -80%);
+  }
+}
+
+/*
+   The monster is a dark semicircle at the bottom of the screen,
+   with tentacle-like shapes waving slowly to simulate underwater motion.
+*/
 #monster {
   position: absolute;
+  bottom: -80px;
   left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  width: 300px;
+  height: 150px;
+  background: radial-gradient(circle at center, #222 0%, #000 80%);
+  border-radius: 50% 50% 0 0;
   opacity: 0;
-  pointer-events: none;
+  z-index: 1;
+  animation: monsterFloat 6s ease-in-out infinite;
 }
-#monster .head {
-  width: 240px;
-  height: 120px;
-  background: #222;
-  border-radius: 120px 120px 0 0;
-  position: absolute;
-  top: 0;
-  left: -120px;
-  animation: monsterHead 4s ease-in-out infinite;
-}
-.tentacle {
-  position: absolute;
-  width: 10px;
-  height: 140px;
-  background: #444;
-  border-radius: 5px;
-  transform-origin: top;
-  animation: tentacleWave 4s ease-in-out infinite;
-}
-.t1 {
-  left: -60px;
-  top: 100px;
-  animation-delay: 0s;
-}
-.t2 {
-  left: -20px;
-  top: 100px;
-  animation-delay: 0.5s;
-}
-.t3 {
-  left: 20px;
-  top: 100px;
-  animation-delay: 1s;
-}
-.t4 {
-  left: 60px;
-  top: 100px;
-  animation-delay: 1.5s;
-}
-@keyframes tentacleWave {
+
+/* Slight floating movement to keep monster alive */
+@keyframes monsterFloat {
   0%,
   100% {
-    transform: rotate(0deg);
+    transform: translate(-50%, 0);
   }
   50% {
-    transform: rotate(15deg);
-  }
-}
-@keyframes monsterHead {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
+    transform: translate(-50%, -10px);
   }
 }
 
-/* Bubbles (spawned via JS) */
+/* Tentacle lines using pseudo-elements */
+#monster::before,
+#monster::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 15px,
+    rgba(0, 0, 0, 0.6) 20px
+  );
+  animation: tentacleWave 8s linear infinite;
+}
+
+/* Tentacle movement waves horizontally */
+@keyframes tentacleWave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-20px);
+  }
+}
+
+/*  BUBBLES  */
+
+/*
+   Bubbles are dynamically generated by JS,
+   but their visual properties are defined here.
+*/
 .bubble {
   position: absolute;
   bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  animation: rise 6s linear infinite;
+  animation: bubbleRise 6s linear infinite;
 }
-@keyframes rise {
+
+/* Vertical movement + fade */
+@keyframes bubbleRise {
   0% {
     transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(-120vh);
+    transform: translateY(-110vh);
     opacity: 0;
   }
 }
 
-/* Background effects */
-.scene2 {
-  animation: shakeScene 0.1s infinite;
+/*
+   Each fragment is created by JS in stayStill() and flies outward.
+   We add a soft blur and small shadow for realism.
+*/
+.subFragment {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.1);
 }
-@keyframes shakeScene {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(1px, 1px);
-  }
-  50% {
-    transform: translate(-1px, -1px);
-  }
-  75% {
-    transform: translate(1px, -1px);
-  }
+
+/* TRANSITION OVERLAY */
+
+/*
+   A full-screen overlay used for scene fading.
+   JS toggles its opacity to create smooth transitions.
+*/
+#transition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  transition: opacity 1s ease;
 }
+
+/*  END OF FILE  */

@@ -1,54 +1,49 @@
-/*
-  Cute Submarine Journey — Final Animation Enhanced Version
-  ----------------------------------------------------------
-  Scene 1 → Scene 2 (Monster encounter)
-  Scene 2 Choices:
-    1. Stay Still → Submarine shatters into fragments (Game Over)
-    2. Break Through → Sub shakes vertically and bursts upward (Victory)
-    3. Escape Away → Turn around, then flee until power loss (Sink)
-  All endings include a Restart button.
-*/
-
-/* Global references */
+//Global variables for DOM elements
 let sub, monster, title, desc, transition, choices, sceneDiv;
 
-/* Initialization */
+// INITIALIZATION
 window.onload = function () {
   try {
-    sub = document.getElementById("submarine");
-    monster = document.getElementById("monster");
-    title = document.getElementById("sceneTitle");
-    desc = document.getElementById("sceneDesc");
-    transition = document.getElementById("transition");
-    choices = document.getElementById("choices");
-    sceneDiv = document.getElementById("scene");
-    console.log("Scene 1 ready: Calm Waters");
+    sub = document.getElementById("submarine"); // submarine element
+    monster = document.getElementById("monster"); // monster shape element
+    title = document.getElementById("sceneTitle"); // scene title text
+    desc = document.getElementById("sceneDesc"); // scene description text
+    transition = document.getElementById("transition"); // overlay for fades
+    choices = document.getElementById("choices"); // container for buttons
+    sceneDiv = document.getElementById("scene"); // overall scene area
+    console.log("Scene 1 ready: Calm Waters initialized successfully.");
   } catch (err) {
-    console.error("Initialization Error:", err.message);
+    console.error("Initialization Error:", err.message); // logs if missing element
   }
 };
 
-/* Smooth fade transition */
+// Helper Function: Smooth Scene Fade
 function sceneTransition(callback) {
-  transition.style.opacity = "1";
+  transition.style.opacity = "1"; // fade to black
   setTimeout(() => {
-    callback();
-    transition.style.opacity = "0";
+    callback(); // run next scene function
+    transition.style.opacity = "0"; // fade back to visible
   }, 1200);
 }
 
-/* ========== Scene 1 → Scene 2 ========== */
+// SCENE 1 → SCENE 2
+// Triggered by clicking “Dive Deeper”
+
 function scene2() {
   sceneTransition(() => {
-    document.body.className = "scene2";
-    document.body.style.background = "linear-gradient(#0c4a6e, #001a33)";
-    title.innerText = "Scene 2: Deeper Waters";
+    document.body.className = "scene2"; // apply CSS for deep sea
+    document.body.style.background = "linear-gradient(#0c4a6e, #001a33)"; // dark blue gradient
+
+    title.innerText = "Scene 2: Deeper Waters"; // update heading
     desc.innerText =
-      "The submarine descends into the darkness. Something stirs below…";
-    sub.className = "diveAnim";
-    sub.querySelector(".light").style.opacity = "1";
-    monster.style.opacity = "1";
-    spawnBubbles(30);
+      "The submarine descends into the darkness. Something stirs below…"; // description
+
+    sub.className = "diveAnim"; // play CSS dive animation
+    sub.querySelector(".light").style.opacity = "1"; // show headlight
+    monster.style.opacity = "1"; // reveal monster silhouette
+    spawnBubbles(30); // add moving bubbles
+
+    // create interactive buttons
     choices.innerHTML = `
       <button onclick="stayStill()">Stay Still</button>
       <button onclick="breakThrough()">Break Through</button>
@@ -57,42 +52,42 @@ function scene2() {
   });
 }
 
-/* ========== Bubble creation ========== */
+// Spawn bubbles for background movement
+
 function spawnBubbles(count) {
   for (let i = 0; i < count; i++) {
-    const b = document.createElement("div");
-    b.className = "bubble";
-    const size = Math.random() * 10 + 5;
+    const b = document.createElement("div"); // create bubble div
+    b.className = "bubble"; // attach CSS animation
+    const size = Math.random() * 10 + 5; // bubble size range
     b.style.width = b.style.height = size + "px";
-    b.style.left = Math.random() * 100 + "vw";
-    b.style.animationDuration = 4 + Math.random() * 3 + "s";
-    b.style.animationDelay = Math.random() * 5 + "s";
+    b.style.left = Math.random() * 100 + "vw"; // random position
+    b.style.animationDuration = 4 + Math.random() * 3 + "s"; // speed
+    b.style.animationDelay = Math.random() * 5 + "s"; // delay
     sceneDiv.appendChild(b);
-    setTimeout(() => b.remove(), 8000);
+    setTimeout(() => b.remove(), 8000); // remove after animation
   }
 }
 
-/* ========== CHOICES ========== */
+// CHOICE 1 — STAY STILL
+// Submarine freezes, gets crushed, shatters into fragments
 
-/* 1️⃣ Stay Still → Submarine shatters into fragments */
 function stayStill() {
   sceneTransition(() => {
-    document.body.style.background = "linear-gradient(#000000,#0f172a)";
-    monster.style.opacity = "0.9";
-    title.innerText = "Ending : Crushed by the Deep";
+    document.body.style.background = "linear-gradient(#000000,#0f172a)"; // dark abyss
+    monster.style.opacity = "0.9"; // make monster more visible
+    title.innerText = "Ending : Crushed by the Deep"; // ending title
     desc.innerText =
-      "You freeze. The monster wraps around the hull. A final creak—then silence.";
+      "You freeze. The monster wraps around the hull. A final creak—then silence."; // ending text
 
-    // Hide original submarine
-    sub.style.opacity = "0";
+    sub.style.opacity = "0"; // hide submarine
 
-    // Create 8 fragments
+    // generate fragments
     for (let i = 0; i < 8; i++) {
       const frag = document.createElement("div");
       frag.className = "subFragment";
       frag.style.left = "50%";
       frag.style.top = "50%";
-      frag.style.background = "#ffd84b";
+      frag.style.background = "#ffd84b"; // yellow
       frag.style.width = Math.random() * 20 + 10 + "px";
       frag.style.height = Math.random() * 10 + 5 + "px";
       frag.style.position = "absolute";
@@ -100,7 +95,7 @@ function stayStill() {
       frag.style.transform = "translate(-50%, -50%)";
       sceneDiv.appendChild(frag);
 
-      // Animate fragments scattering downward
+      // animate scattering
       frag.animate(
         [
           { transform: "translate(-50%, -50%) rotate(0deg)" },
@@ -121,23 +116,24 @@ function stayStill() {
           easing: "ease-in",
         }
       );
-
-      setTimeout(() => frag.remove(), 4000);
+      setTimeout(() => frag.remove(), 4000); // cleanup
     }
 
+    // restart button
     choices.innerHTML = `<button onclick="restartJourney()">Restart Journey</button>`;
   });
 }
-
-/* 2️⃣ Break Through → Vertical shake and victory */
+// CHOICE 2 — BREAK THROUGH
+// Submarine shakes vertically, background flipped (yellow top)
 function breakThrough() {
   sceneTransition(() => {
-    monster.style.opacity = "0";
-    document.body.style.background = "linear-gradient(#fcd34d,#2563eb)";
-    title.innerText = "Ending : Toward the Dawn";
+    monster.style.opacity = "0"; // monster disappears
+    document.body.style.background = "linear-gradient(#fcd34d, #2563eb)"; // yellow top, blue bottom
+    title.innerText = "Ending : Toward the Dawn"; // title update
     desc.innerText =
-      "You surge forward, shaking violently, bursting through the barrier into light!";
-    // Shake vertically
+      "You surge forward, shaking violently, bursting through the barrier into light!"; // text
+
+    // vertical shaking motion
     sub.animate(
       [
         { transform: "translate(-50%, -50%)" },
@@ -146,24 +142,27 @@ function breakThrough() {
       ],
       { duration: 300, iterations: 10, easing: "ease-in-out" }
     );
-    spawnBubbles(40);
-    choices.innerHTML = `<button onclick="restartJourney()">Restart Journey</button>`;
+
+    spawnBubbles(40); // additional bubbles
+    choices.innerHTML = `<button onclick="restartJourney()">Restart Journey</button>`; // restart
   });
 }
 
-/* 3️⃣ Escape Away → Flip, delay, then flee */
+// CHOICE 3 — ESCAPE AWAY
+// Step 1: Sub flips horizontally
+// Step 2: Sub flees left and fades into darkness
+
 function escapeAway() {
   sceneTransition(() => {
-    monster.style.opacity = "0.3";
-    document.body.style.background = "linear-gradient(#001b2e,#000)";
-    title.innerText = "Scene 3: Turning Away";
-    desc.innerText = "You turn the submarine around, fleeing into the dark.";
+    monster.style.opacity = "0.3"; // dim monster
+    document.body.style.background = "linear-gradient(#001b2e,#000)"; // dark blue
+    title.innerText = "Scene 3: Turning Away"; // temporary text
+    desc.innerText = "You turn the submarine around, fleeing into the dark."; // description
 
-    // Step 1: Flip direction
-    sub.style.transition = "transform 1s ease";
-    sub.style.transform = "translate(-50%,-50%) scaleX(-1)";
+    sub.style.transition = "transform 1s ease"; // smooth flip
+    sub.style.transform = "translate(-50%,-50%) scaleX(-1)"; // flip horizontally
 
-    // Step 2: After 1.2s, flee forward
+    // after flipping, make it flee
     setTimeout(() => {
       sub.animate(
         [
@@ -172,32 +171,37 @@ function escapeAway() {
         ],
         { duration: 3000, fill: "forwards", easing: "ease-in" }
       );
-      title.innerText = "Ending : The Silent Sea";
+
+      title.innerText = "Ending : The Silent Sea"; // final title
       desc.innerText =
-        "Engines strain… then fade. The submarine drifts downward into endless quiet.";
+        "Engines strain… then fade. The submarine drifts downward into endless quiet."; // ending desc
       setTimeout(() => {
-        document.body.style.background = "linear-gradient(#000814,#000)";
+        document.body.style.background = "linear-gradient(#000814,#000)"; // fade to black
       }, 2000);
-      choices.innerHTML = `<button onclick="restartJourney()">Restart Journey</button>`;
+
+      choices.innerHTML = `<button onclick="restartJourney()">Restart Journey</button>`; // restart
     }, 1200);
   });
 }
 
-/* ========== Restart Journey ========== */
+// RESTART JOURNEY — Reset everything to Scene 1
+
 function restartJourney() {
   sceneTransition(() => {
-    // Reset visuals
-    document.body.className = "";
-    document.body.style.background = "linear-gradient(#7dd3fc,#1e3a8a)";
-    monster.style.opacity = "0";
-    sub.style.opacity = "1";
-    sub.style.transform = "translate(-50%,-50%)";
-    sub.querySelector(".body").style.background = "#ffd84b";
-    sub.querySelector(".light").style.opacity = "0";
-    title.innerText = "Scene 1: Calm Waters";
+    document.body.className = ""; // clear scene styles
+    document.body.style.background = "linear-gradient(#7dd3fc,#1e3a8a)"; // calm blue
+
+    monster.style.opacity = "0"; // hide monster
+    sub.style.opacity = "1"; // make sub visible
+    sub.style.transform = "translate(-50%,-50%)"; // reset position
+    sub.querySelector(".body").style.background = "#ffd84b"; // restore yellow
+    sub.querySelector(".light").style.opacity = "0"; // turn off light
+
+    title.innerText = "Scene 1: Calm Waters"; // reset title
     desc.innerText =
-      "A small yellow submarine drifts gently through soft blue light.";
-    choices.innerHTML = `<button onclick="scene2()">Dive Deeper</button>`;
-    console.log("Restarted to Scene 1.");
+      "A small yellow submarine drifts gently through soft blue light."; // reset desc
+
+    choices.innerHTML = `<button onclick="scene2()">Dive Deeper</button>`; // restart button
+    console.log("Restarted to Scene 1 successfully."); // console feedback
   });
 }

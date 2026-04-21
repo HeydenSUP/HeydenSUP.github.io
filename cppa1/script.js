@@ -311,6 +311,11 @@ const totalShowreelSlides = 3;
 let showreelAutoSlide = null;
 
 function updateShowreelSlider() {
+  const slides = document.querySelectorAll(".showreel-slide");
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === currentShowreelIndex);
+  });
   if (!showreelTrack) return;
 
   showreelTrack.style.transform = `translateX(-${currentShowreelIndex * 100}%)`;
@@ -372,3 +377,8 @@ if (showreelWindow) {
 
 updateShowreelSlider();
 startShowreelAutoSlide();
+
+document.addEventListener("mousemove", (e) => {
+  document.body.style.setProperty("--x", e.clientX + "px");
+  document.body.style.setProperty("--y", e.clientY + "px");
+});

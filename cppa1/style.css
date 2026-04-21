@@ -1168,3 +1168,58 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
+.showreel-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  perspective: 1200px;
+}
+
+.showreel-slide {
+  min-width: 100%;
+  transform: scale(0.9);
+  opacity: 0.4;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+.showreel-slide.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(214, 181, 141, 0.15),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.showreel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(214, 181, 141, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.showreel-slide:hover::after {
+  opacity: 1;
+}

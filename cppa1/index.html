@@ -8,6 +8,7 @@
     <title>HDS Studio</title>
   </head>
   <body>
+    <canvas id="particle-canvas"></canvas>
     <div class="light-beam light-left"></div>
     <div class="light-beam light-right"></div>
 
@@ -47,36 +48,99 @@
       <!-- SHOWREEL -->
       <section id="showreel" class="section reveal">
         <div class="section-head">
-          <p class="eyebrow">Featured</p>
-          <h2>Showreel</h2>
+          <p class="eyebrow">Featured Works</p>
+          <h2>Progress</h2>
+          <p class="showreel-intro">
+            A selected showcase of video editing, 3D environment work, and
+            digital media projects.
+          </p>
         </div>
 
-        <div class="showreel-frame">
-          <!-- 方案1：先占位 -->
-          <div class="video-placeholder">
-            <h3>Insert your showreel here</h3>
-            <p>You can embed YouTube/Vimeo or use a local MP4 file.</p>
+        <div class="showreel-slider">
+          <button class="slider-btn prev-btn" id="showreel-prev">
+            &#10094;
+          </button>
+
+          <div class="showreel-window">
+            <div class="showreel-track" id="showreel-track">
+              <!-- Slide 1 -->
+              <a
+                href="https://v.douyin.com/Ys6dK_eZcvs/ "
+                target="_blank"
+                rel="noopener noreferrer"
+                class="showreel-slide"
+              >
+                <div class="showreel-media">
+                  <img src="image/v7.png" alt="Editing Project preview" />
+                </div>
+                <div class="showreel-info">
+                  <p class="showreel-tag">PERSONAL VLOG</p>
+                  <h3>hang out</h3>
+                  <p>
+                    A personal vlog project exploring everyday moments through
+                    cinematic editing, pacing, and visual storytelling. Focused
+                    on capturing atmosphere and creating an engaging viewing
+                    experience.
+                  </p>
+                </div>
+              </a>
+
+              <!-- Slide 2 -->
+              <a href="project-3d.html" class="showreel-slide">
+                <div class="showreel-media">
+                  <img src="image/v9.png" alt="3D Environment preview" />
+                </div>
+                <div class="showreel-info">
+                  <p class="showreel-tag">Minimalist Modeling</p>
+                  <h3>The Threshold</h3>
+                  <p>
+                    From the users perspective, this is a continuous experience.
+                    Outside, the space is open and neutral. At the entrance,
+                    space compresses and light dims, creating tension and focus.
+                    Inside, the environment is enclosed and simplified,
+                    directing attention to the center. The user is not just
+                    observing, but being guided by the space.
+                  </p>
+                </div>
+              </a>
+
+              <!-- Slide 3 -->
+              <a
+                href="https://youtu.be/jwVbfbItXMM"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="showreel-slide"
+              >
+                <div class="showreel-media">
+                  <img
+                    src="image/v8.png"
+                    alt="Creative Visual Project preview"
+                  />
+                </div>
+                <div class="showreel-info">
+                  <p class="showreel-tag">digital video project</p>
+                  <h3>prototype</h3>
+                  <p>
+                    A group project for a digital video that focuses on visual
+                    effects and original music, setting aside narrative elements
+                    to allow viewers to fully immerse themselves in the
+                    experience.
+                  </p>
+                </div>
+              </a>
+            </div>
           </div>
 
-          <!-- 方案2：你有 mp4 时，删掉上面的占位，换成下面这段 -->
-          <!--
-        <video class="portfolio-video" controls playsinline>
-          <source src="media/showreel.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        -->
-
-          <!-- 方案3：你有 YouTube 嵌入链接时，用这个 -->
-          <!--
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="Showreel"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <button class="slider-btn next-btn" id="showreel-next">
+            &#10095;
+          </button>
         </div>
-        --></div>
+
+        <div class="showreel-dots" id="showreel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
       </section>
 
       <!-- STICKY STORY SECTION -->

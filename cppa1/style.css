@@ -897,3 +897,218 @@ main,
 .project-card {
   cursor: pointer;
 }
+
+/* ===== Particle Canvas Background ===== */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* 保证主要内容压在粒子上面 */
+.site-header,
+main,
+.footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Showreel Slider ===== */
+
+.showreel-intro {
+  max-width: 760px;
+  color: var(--muted);
+  margin-top: 14px;
+  line-height: 1.7;
+}
+
+.showreel-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.showreel-window {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 28px;
+}
+
+.showreel-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.showreel-slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.showreel-slide:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 181, 141, 0.26);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+}
+
+.showreel-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(214, 181, 141, 0.08) 35%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.showreel-slide:hover::before {
+  opacity: 1;
+}
+
+.showreel-media {
+  min-height: 420px;
+  overflow: hidden;
+  background: linear-gradient(
+    140deg,
+    rgba(214, 181, 141, 0.18),
+    rgba(255, 255, 255, 0.03)
+  );
+}
+
+.showreel-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.showreel-slide:hover .showreel-media img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+.showreel-info {
+  padding: 34px 34px 34px 0;
+}
+
+.showreel-tag {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  margin-bottom: 10px;
+}
+
+.showreel-info h3 {
+  font-size: 1.9rem;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.showreel-info p:last-child {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.slider-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.slider-btn:hover {
+  transform: scale(1.05);
+  border-color: rgba(214, 181, 141, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.showreel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.showreel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.showreel-dots .dot.active {
+  background: var(--accent);
+  transform: scale(1.15);
+}
+
+@media (max-width: 900px) {
+  .showreel-slide {
+    grid-template-columns: 1fr;
+  }
+
+  .showreel-media {
+    min-height: 240px;
+  }
+
+  .showreel-media img {
+    min-height: 240px;
+  }
+
+  .showreel-info {
+    padding: 0 22px 24px;
+  }
+
+  .showreel-slider {
+    gap: 10px;
+  }
+
+  .slider-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}

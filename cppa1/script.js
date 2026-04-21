@@ -72,3 +72,104 @@ function updateLighting() {
 
 window.addEventListener("scroll", updateLighting);
 window.addEventListener("load", updateLighting);
+// ===== 图片列表（自己改路径）=====
+const galleryImages = [
+  "image/v2.png",
+  "image/v3.png",
+  "image/v4.png",
+  "image/v5.png",
+];
+
+// ===== 状态变量 =====
+let currentIndex = 0;
+let autoPlayInterval = null;
+
+// ===== DOM =====
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+
+// ===== 打开 =====
+function openGallery(index) {
+  // 防止叠加多个定时器
+  clearInterval(autoPlayInterval);
+
+  currentIndex = index;
+  lightbox.style.display = "flex";
+  lightboxImg.src = galleryImages[currentIndex];
+
+  startAutoPlay();
+}
+
+// ===== 关闭 =====
+function closeGallery() {
+  lightbox.style.display = "none";
+  stopAutoPlay();
+}
+
+// ===== 自动播放 =====
+function startAutoPlay() {
+  autoPlayInterval = setInterval(() => {
+    nextImage();
+  }, 2500); // 2.5秒切换（比你之前更高级一点，不那么急躁）
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayInterval);
+}
+
+// ===== 切换图片 =====
+function nextImage() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex];
+}
+
+function prevImage() {
+  currentIndex =
+    (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex];
+}
+
+// ===== 事件绑定 =====
+
+// 关闭按钮
+if (closeBtn) {
+  closeBtn.addEventListener("click", closeGallery);
+}
+
+// 左右按钮（顺便阻止冒泡，不然会点到背景关闭）
+if (prevBtn) {
+  prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    prevImage();
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    nextImage();
+  });
+}
+
+// 点击背景关闭
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeGallery();
+    }
+  });
+}
+
+// ===== 鼠标悬停暂停（核心）=====
+if (lightboxImg) {
+  lightboxImg.addEventListener("mouseenter", () => {
+    stopAutoPlay();
+  });
+
+  lightboxImg.addEventListener("mouseleave", () => {
+    startAutoPlay();
+  });
+}

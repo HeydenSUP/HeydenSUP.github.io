@@ -130,41 +130,63 @@
         </div>
 
         <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-image placeholder-box">Project 01</div>
+          <a
+            href="https://www.youtube.com/watch?v=qUJlfZjX66I"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card reveal"
+          >
+            <div class="project-image">
+              <img src="image/v1.png" alt="Video preview" />
+            </div>
             <div class="project-content">
               <p class="project-tag">Video</p>
-              <h3>Editing Project</h3>
+              <h3>Video Editing Project</h3>
               <p>
-                A short-form editing project focused on rhythm, transitions, and
-                storytelling structure.
+                An immersive short film about hiking in nature focused on
+                rhythm, transitions, and visual storytelling in a immersive way.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="project-card reveal">
-            <div class="project-image placeholder-box">Project 02</div>
-            <div class="project-content">
-              <p class="project-tag">3D</p>
-              <h3>Modeling Project</h3>
-              <p>
-                A Blender-based exercise exploring form, lighting, and rendered
-                visual composition.
-              </p>
+          <a
+            href="javascript:void(0)"
+            class="project-card reveal"
+            onclick="openGallery(0)"
+          >
+            <div class="project-image">
+              <img src="image/v2.png" alt="3D main render" />
             </div>
-          </article>
 
-          <article class="project-card reveal">
-            <div class="project-image placeholder-box">Project 03</div>
             <div class="project-content">
-              <p class="project-tag">Digital Media</p>
-              <h3>Creative Media Work</h3>
+              <p class="project-tag">3D Environment</p>
+              <h3>Abandoned Interior</h3>
               <p>
-                A digital media project combining visual design decisions with
-                production workflow thinking.
+                A 3D environment project exploring abandoned interior spaces
+                through lighting, composition, and atmospheric storytelling.
               </p>
             </div>
-          </article>
+          </a>
+          <a
+            href="https://www.youtube.com/watch?v=KGN4T9mk_TA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card reveal"
+          >
+            <div class="project-image">
+              <img src="image/v6.png" alt="Video preview" />
+            </div>
+
+            <div class="project-content">
+              <p class="project-tag">Video</p>
+              <h3>Creative Visual Project</h3>
+              <p>
+                A short commercial that combines animation and video editing,
+                aimed at putting an end to cyberbullying and prompting viewers
+                to reflect
+              </p>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -178,9 +200,16 @@
         <div class="about-grid">
           <div class="about-panel">
             <p>
-              I am Junxi Guo, a digital media student based in Melbourne. My
-              work focuses on video editing and 3D visual development, with an
-              interest in storytelling through motion and digital form.
+              I am a digital media student with a strong interest in video
+              production and 3D modeling. I enjoy creating visual content that
+              combines creativity and technical skills to engage audiences.
+              Through my studies, I have developed experience in video editing
+              and basic 3D modeling, using tools such as Adobe Premiere Pro,
+              After Effects, and Blender. I am particularly interested in
+              storytelling through visual media and exploring how digital
+              content can enhance user experience. I am currently building my
+              portfolio and looking for opportunities to gain experience in
+              video production, editing, or VFX-related roles.
             </p>
             <p>
               Through academic and personal projects, I am building a portfolio
@@ -194,7 +223,7 @@
             <ul>
               <li>Adobe Premiere Pro</li>
               <li>After Effects</li>
-              <li>Blender</li>
+              <li>Unity</li>
               <li>Video Editing</li>
               <li>Visual Storytelling</li>
               <li>Basic 3D Modeling</li>
@@ -238,6 +267,20 @@
       <p>© 2026 HDS Studio. Designed by Junxi Guo.</p>
     </footer>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <span class="close">&times;</span>
+      <img
+        class="lightbox-img"
+        id="lightbox-img"
+        alt="Expanded project image"
+      />
+
+      <div class="controls">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

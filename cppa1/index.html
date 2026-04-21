@@ -5,7 +5,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
-    <title>HDS CV</title>
+    <title>HDS Studio</title>
   </head>
-  <body></body>
+  <body>
+    <div class="light-beam light-left"></div>
+    <div class="light-beam light-right"></div>
+
+    <header class="site-header">
+      <div class="brand">HDS Studio</div>
+      <nav class="nav">
+        <a href="#showreel">Showreel</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-light"></div>
+        <div class="hero-inner reveal">
+          <p class="eyebrow">Portfolio Website</p>
+          <h1>HDS Studio</h1>
+          <p class="hero-subtitle">Video Editing & 3D Visual Work</p>
+          <p class="hero-description">
+            A minimalist portfolio by Junxi Guo, focused on visual storytelling,
+            editing rhythm, and developing 3D creative practice.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View Work</a>
+            <a class="btn btn-secondary" href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <span></span>
+          <p>Scroll</p>
+        </div>
+      </section>
+
+      <!-- SHOWREEL -->
+      <section id="showreel" class="section reveal">
+        <div class="section-head">
+          <p class="eyebrow">Featured</p>
+          <h2>Showreel</h2>
+        </div>
+
+        <div class="showreel-frame">
+          <!-- 方案1：先占位 -->
+          <div class="video-placeholder">
+            <h3>Insert your showreel here</h3>
+            <p>You can embed YouTube/Vimeo or use a local MP4 file.</p>
+          </div>
+
+          <!-- 方案2：你有 mp4 时，删掉上面的占位，换成下面这段 -->
+          <!--
+        <video class="portfolio-video" controls playsinline>
+          <source src="media/showreel.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        -->
+
+          <!-- 方案3：你有 YouTube 嵌入链接时，用这个 -->
+          <!--
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Showreel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        --></div>
+      </section>
+
+      <!-- STICKY STORY SECTION -->
+      <section class="section sticky-story">
+        <div class="sticky-left">
+          <div class="sticky-box">
+            <p class="eyebrow">Creative Direction</p>
+            <h2>Motion.<br />Form.<br />Narrative.</h2>
+            <p>
+              My work combines video editing and 3D practice to create visual
+              experiences with clarity, rhythm, and atmosphere.
+            </p>
+          </div>
+        </div>
+
+        <div class="sticky-right">
+          <article class="story-card reveal">
+            <span class="story-number">01</span>
+            <h3>Video Editing</h3>
+            <p>
+              I focus on timing, transitions, and visual pacing to create
+              engaging screen-based narratives.
+            </p>
+          </article>
+
+          <article class="story-card reveal">
+            <span class="story-number">02</span>
+            <h3>3D Exploration</h3>
+            <p>
+              I use 3D tools to experiment with composition, lighting, and
+              digital form in visual media production.
+            </p>
+          </article>
+
+          <article class="story-card reveal">
+            <span class="story-number">03</span>
+            <h3>Creative Identity</h3>
+            <p>
+              HDS Studio represents my developing professional identity in
+              digital media and portfolio-based creative work.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section id="work" class="section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Selected Projects</p>
+          <h2>Work</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-image placeholder-box">Project 01</div>
+            <div class="project-content">
+              <p class="project-tag">Video</p>
+              <h3>Editing Project</h3>
+              <p>
+                A short-form editing project focused on rhythm, transitions, and
+                storytelling structure.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image placeholder-box">Project 02</div>
+            <div class="project-content">
+              <p class="project-tag">3D</p>
+              <h3>Modeling Project</h3>
+              <p>
+                A Blender-based exercise exploring form, lighting, and rendered
+                visual composition.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image placeholder-box">Project 03</div>
+            <div class="project-content">
+              <p class="project-tag">Digital Media</p>
+              <h3>Creative Media Work</h3>
+              <p>
+                A digital media project combining visual design decisions with
+                production workflow thinking.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section reveal">
+        <div class="section-head">
+          <p class="eyebrow">Profile</p>
+          <h2>About</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-panel">
+            <p>
+              I am Junxi Guo, a digital media student based in Melbourne. My
+              work focuses on video editing and 3D visual development, with an
+              interest in storytelling through motion and digital form.
+            </p>
+            <p>
+              Through academic and personal projects, I am building a portfolio
+              that reflects both technical growth and a developing creative
+              identity.
+            </p>
+          </div>
+
+          <div class="skills-panel">
+            <h3>Skills</h3>
+            <ul>
+              <li>Adobe Premiere Pro</li>
+              <li>After Effects</li>
+              <li>Blender</li>
+              <li>Video Editing</li>
+              <li>Visual Storytelling</li>
+              <li>Basic 3D Modeling</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section reveal">
+        <div class="section-head">
+          <p class="eyebrow">Contact</p>
+          <h2>Get in Touch</h2>
+        </div>
+
+        <div class="contact-panel">
+          <p>
+            For portfolio viewing, collaboration, or further information, please
+            contact me through the details below.
+          </p>
+          <ul>
+            <li>
+              Email:
+              <a href="mailto:s4074160@student.rmit.edu.au"
+                >s4074160@student.rmit.edu.au</a
+              >
+            </li>
+            <li>Location: Melbourne, VIC</li>
+            <li>
+              LinkedIn:
+              <a href="https://www.linkedin.com/in/heyden-guo-721a633b9/"
+                >https://www.linkedin.com/in/heyden-guo-721a633b9/</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 HDS Studio. Designed by Junxi Guo.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

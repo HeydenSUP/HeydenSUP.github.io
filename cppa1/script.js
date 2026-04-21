@@ -382,3 +382,23 @@ document.addEventListener("mousemove", (e) => {
   document.body.style.setProperty("--x", e.clientX + "px");
   document.body.style.setProperty("--y", e.clientY + "px");
 });
+
+// ===== Hidden Word Light Reveal =====
+const heroSection = document.querySelector(".hero");
+const hiddenWord = document.getElementById("hidden-word");
+
+if (heroSection && hiddenWord) {
+  heroSection.addEventListener("mousemove", (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    hiddenWord.style.setProperty("--mx", `${x}px`);
+    hiddenWord.style.setProperty("--my", `${y}px`);
+  });
+
+  heroSection.addEventListener("mouseleave", () => {
+    hiddenWord.style.setProperty("--mx", `-999px`);
+    hiddenWord.style.setProperty("--my", `-999px`);
+  });
+}

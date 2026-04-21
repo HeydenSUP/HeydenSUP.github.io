@@ -1223,3 +1223,72 @@ body::before {
 .showreel-slide:hover::after {
   opacity: 1;
 }
+
+/* ===== Hidden Word in Hero ===== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hidden-word {
+  position: absolute;
+  top: 58%;
+  right: 8%;
+  transform: translateY(-50%);
+  font-size: clamp(3rem, 9vw, 8rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  z-index: 1;
+
+  /* 平时基本隐藏 */
+  opacity: 0.18;
+
+  /* 关键：只有“光圈”扫过的区域能看见 */
+  -webkit-mask-image: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.95) 18%,
+    rgba(255, 255, 255, 0.45) 38%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  mask-image: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.95) 18%,
+    rgba(255, 255, 255, 0.45) 38%,
+    rgba(255, 255, 255, 0) 70%
+  );
+
+  transition: opacity 0.25s ease;
+}
+
+/* 鼠标进入 hero 时稍微更明显 */
+.hero:hover .hidden-word {
+  opacity: 0.28;
+}
+
+/* 小屏别太夸张 */
+@media (max-width: 900px) {
+  .hidden-word {
+    right: 5%;
+    top: 65%;
+    font-size: clamp(2rem, 12vw, 4rem);
+
+    -webkit-mask-image: radial-gradient(
+      120px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 25%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    mask-image: radial-gradient(
+      120px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 25%,
+      rgba(255, 255, 255, 0) 70%
+    );
+  }
+}

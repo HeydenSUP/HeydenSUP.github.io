@@ -52,45 +52,69 @@
           <h2>Final Series of Projects</h2>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="image-placeholder">Project 1 Image</div>
-            <div class="card-content">
-              <p class="project-number">01</p>
-              <h3>The Observer</h3>
-              <p>
-                An environmental experience exploring observation, atmosphere,
-                and spatial awareness.
-              </p>
-              <a href="project1.html">View Project</a>
-            </div>
-          </article>
+        <div class="project-carousel">
+          <button class="carousel-btn prev-btn" aria-label="Previous project">
+            ‹
+          </button>
 
-          <article class="project-card">
-            <div class="image-placeholder">Project 2 Image</div>
-            <div class="card-content">
-              <p class="project-number">02</p>
-              <h3>The Threshold</h3>
-              <p>
-                A liminal space experience exploring transition, uncertainty,
-                and spatial boundaries.
-              </p>
-              <a href="project2.html">View Project</a>
-            </div>
-          </article>
+          <div class="carousel-window">
+            <div class="carousel-track">
+              <article class="project-card carousel-card">
+                <div class="project-image">
+                  <img src="image/po2.png" alt="The Observer" />
+                </div>
+                <div class="card-content">
+                  <p class="project-number">01</p>
+                  <h3>The Observer</h3>
+                  <p>
+                    An environmental experience exploring observation,
+                    atmosphere, and spatial awareness.
+                  </p>
+                  <a href="project1.html">View Project</a>
+                </div>
+              </article>
 
-          <article class="project-card featured">
-            <div class="image-placeholder">COMPLIANCE Image</div>
-            <div class="card-content">
-              <p class="project-number">03</p>
-              <h3>Compliance</h3>
-              <p>
-                An interactive experience exploring obedience, control, and
-                behavioural conditioning.
-              </p>
-              <a href="compliance.html">View Project</a>
+              <article class="project-card carousel-card">
+                <div class="project-image">
+                  <img src="image/po1.png" alt="The Threshold" />
+                </div>
+                <div class="card-content">
+                  <p class="project-number">02</p>
+                  <h3>The Threshold</h3>
+                  <p>
+                    A liminal space experience exploring transition,
+                    uncertainty, and spatial boundaries.
+                  </p>
+                  <a href="project2.html">View Project</a>
+                </div>
+              </article>
+
+              <article class="project-card carousel-card featured">
+                <div class="project-image">
+                  <img src="image/compliance.png" alt="COMPLIANCE" />
+                </div>
+                <div class="card-content">
+                  <p class="project-number">03</p>
+                  <h3>COMPLIANCE</h3>
+                  <p>
+                    An interactive experience exploring obedience, control, and
+                    behavioural conditioning.
+                  </p>
+                  <a href="compliance.html">View Project</a>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
+
+          <button class="carousel-btn next-btn" aria-label="Next project">
+            ›
+          </button>
+        </div>
+
+        <div class="carousel-dots">
+          <button class="carousel-dot active" data-slide="0"></button>
+          <button class="carousel-dot" data-slide="1"></button>
+          <button class="carousel-dot" data-slide="2"></button>
         </div>
       </section>
 

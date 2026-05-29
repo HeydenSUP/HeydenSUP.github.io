@@ -88,3 +88,44 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
+
+/* Project carousel */
+
+const carouselTrack = document.querySelector(".carousel-track");
+const carouselDots = document.querySelectorAll(".carousel-dot");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+
+let currentSlide = 0;
+const totalSlides = carouselDots.length;
+
+function updateCarousel() {
+  if (!carouselTrack) return;
+
+  carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  carouselDots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentSlide);
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+}
+
+carouselDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    currentSlide = Number(dot.dataset.slide);
+    updateCarousel();
+  });
+});

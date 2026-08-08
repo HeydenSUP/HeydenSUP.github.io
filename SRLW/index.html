@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>给我的笨蛋宝宝 ♡</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 背景装饰 -->
+    <!-- 动态背景 -->
+    <div class="animated-background">
+      <!-- 流动光晕 -->
+      <div class="background-glow glow-one"></div>
+      <div class="background-glow glow-two"></div>
+      <div class="background-glow glow-three"></div>
+
+      <!-- 鼠标柔光 -->
+      <div class="mouse-glow" id="mouseGlow"></div>
+
+      <!-- 漂浮粒子 -->
+      <div class="particle-container" id="particleContainer"></div>
+    </div>
+    <!-- 页码 -->
+    <div class="page-counter">
+      <span id="currentPageNumber">01</span>
+      <span>/ 06</span>
+    </div>
+
+    <!-- 音乐按钮 -->
+    <button class="music-button" id="musicButton" aria-label="播放音乐">
+      ♪
+    </button>
+
+    <audio id="bgMusic" loop>
+      <source src="music/birthday.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- =========================
+       PAGE 1
+  ========================== -->
+    <section class="page active" data-page="0">
+      <div class="floating-heart heart-1">♡</div>
+      <div class="floating-heart heart-2">♡</div>
+      <div class="floating-heart heart-3">♡</div>
+
+      <div class="page-content hero-content">
+        <p class="date">♡ 08.12 ♡</p>
+
+        <h1 class="main-title">
+          笨蛋宝宝
+          <span>生日快乐</span>
+        </h1>
+
+        <p class="lead-text">
+          又陪你走完一年，<br />
+          是和宝宝过的第二个生日啦。
+        </p>
+
+        <button class="primary-button" id="openGift">
+          🎁 打开你的生日礼物
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+       PAGE 2
+  ========================== -->
+    <section class="page" data-page="1">
+      <div class="page-content story-page">
+        <p class="page-label">PART 01 · 又一年</p>
+
+        <h2>
+          很庆幸，<br />
+          很多普通的日子都有你的出现。
+        </h2>
+
+        <p class="body-text">
+          和你在一起的时候，不用刻意伪装， 不用小心翼翼，可以安心做自己。
+        </p>
+
+        <p class="emphasis">这件事对我来说，特别珍贵。</p>
+      </div>
+    </section>
+
+    <!-- =========================
+       PAGE 3
+  ========================== -->
+    <section class="page" data-page="2">
+      <div class="page-content memory-page">
+        <p class="page-label">OUR MEMORIES ♡</p>
+
+        <h2>一些关于我们的瞬间</h2>
+
+        <p class="body-text memory-intro">
+          有些照片可能很普通，<br />
+          但因为是和你一起，所以我一直都记得。
+        </p>
+
+        <div class="photo-grid">
+          <div class="polaroid">
+            <img src="images/photo1.jpg" alt="我们的回忆 1" />
+            <p>和你一起的某一天 ♡</p>
+          </div>
+
+          <div class="polaroid">
+            <img src="images/photo2.jpg" alt="我们的回忆 2" />
+            <p>笨蛋宝宝</p>
+          </div>
+
+          <div class="polaroid">
+            <img src="images/photo3.jpg" alt="我们的回忆 3" />
+            <p>今天也很喜欢你</p>
+          </div>
+
+          <div class="polaroid">
+            <img src="images/photo4.jpg" alt="我们的回忆 4" />
+            <p>一起去过的地方</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       PAGE 4
+  ========================== -->
+    <section class="page" data-page="3">
+      <div class="page-content letter-page">
+        <div class="letter-card">
+          <p class="page-label">PART 02 · 谢谢你</p>
+
+          <h2>谢谢你一直在我身边 ♡</h2>
+
+          <p class="body-text">
+            我知道我也会有做得不够好的地方， 会懒懒，会没有仪式感。
+          </p>
+
+          <p class="body-text">
+            谢谢你愿意包容我的小缺点， 也谢谢你带给我的所有开心、感动，
+            还有那些细碎又温暖的瞬间。
+          </p>
+
+          <div class="letter-heart">♡</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       PAGE 5
+  ========================== -->
+    <section class="page" data-page="4">
+      <div class="page-content wish-page">
+        <p class="page-label">PART 03 · 新的一岁 🎀</p>
+
+        <h2>
+          不祝你万事完美，<br />
+          只愿你平安自在。
+        </h2>
+
+        <div class="wish-grid">
+          <div class="wish-card">
+            <span>♡</span>
+            <h3>平安自在</h3>
+            <p>希望每一天都能轻轻松松。</p>
+          </div>
+
+          <div class="wish-card">
+            <span>✦</span>
+            <h3>少点烦恼</h3>
+            <p>不开心的事情统统走开。</p>
+          </div>
+
+          <div class="wish-card">
+            <span>♡</span>
+            <h3>多被偏爱</h3>
+            <p>因为宝宝本来就值得很多很多爱。</p>
+          </div>
+
+          <div class="wish-card">
+            <span>✿</span>
+            <h3>慢慢得到</h3>
+            <p>想要的一切，都慢慢来到你身边。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       PAGE 6
+  ========================== -->
+    <section class="page" data-page="5">
+      <div class="page-content final-page">
+        <p class="page-label">TO MY BABY ♡</p>
+
+        <p class="future-text">往后的日子，我还想继续站在你身边。</p>
+
+        <div class="future-list">
+          <span>吃很多顿饭</span>
+          <b>♡</b>
+          <span>走很多段路</span>
+          <b>♡</b>
+          <span>看很多风景</span>
+        </div>
+
+        <p class="forever-text">
+          还要陪你再过一百多万个生日，<br />
+          和你一起变成一百多万岁的老宝宝。
+        </p>
+
+        <div class="final-heart">♡</div>
+
+        <h2>
+          生日快乐，<br />
+          我的笨蛋宝。
+        </h2>
+
+        <p class="love-text">我爱你 💕💕</p>
+
+        <p class="final-date">2026 · 08 · 12</p>
+
+        <button class="restart-button" id="restartButton">再看一次 ♡</button>
+      </div>
+    </section>
+
+    <!-- =========================
+       页面导航
+  ========================== -->
+
+    <div class="navigation" id="navigation">
+      <button class="nav-button" id="prevButton" aria-label="上一页">
+        ← 上一页
+      </button>
+
+      <div class="page-dots" id="pageDots">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+        <button class="dot" data-index="2"></button>
+        <button class="dot" data-index="3"></button>
+        <button class="dot" data-index="4"></button>
+        <button class="dot" data-index="5"></button>
+      </div>
+
+      <button class="nav-button next" id="nextButton" aria-label="下一页">
+        下一页 ♡
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -316,3 +316,101 @@ setInterval(createBackgroundParticle, 700);
 for (let i = 0; i < 12; i++) {
   setTimeout(createBackgroundParticle, i * 250);
 }
+
+/* ==========================================
+   BIRTHDAY GIFT SURPRISE
+========================================== */
+
+const giftRevealButton = document.getElementById("giftRevealButton");
+
+const giftSurprise = document.getElementById("giftSurprise");
+
+const closeGiftSurprise = document.getElementById("closeGiftSurprise");
+
+/* 彩带颜色 */
+
+const confettiColors = [
+  "#ff7fa8",
+  "#ffc1d5",
+  "#ffe58f",
+  "#cbb8ff",
+  "#ffffff",
+  "#ff9ebc",
+];
+
+/* 创建彩带 */
+
+function createConfetti() {
+  for (let i = 0; i < 130; i++) {
+    const confetti = document.createElement("div");
+
+    confetti.className = "confetti-piece";
+
+    /* 随机颜色 */
+
+    confetti.style.background =
+      confettiColors[Math.floor(Math.random() * confettiColors.length)];
+
+    /* 随机位置 */
+
+    confetti.style.left = `${Math.random() * 100}vw`;
+
+    /* 随机大小 */
+
+    const width = 6 + Math.random() * 8;
+
+    const height = 10 + Math.random() * 15;
+
+    confetti.style.width = `${width}px`;
+
+    confetti.style.height = `${height}px`;
+
+    /* 随机速度 */
+
+    const duration = 2.5 + Math.random() * 3;
+
+    confetti.style.animationDuration = `${duration}s`;
+
+    /* 随机延迟 */
+
+    confetti.style.animationDelay = `${Math.random() * 0.6}s`;
+
+    document.body.appendChild(confetti);
+
+    setTimeout(
+      () => {
+        confetti.remove();
+      },
+
+      (duration + 1) * 1000,
+    );
+  }
+}
+
+/* 点击生日礼物 */
+
+if (giftRevealButton) {
+  giftRevealButton.addEventListener("click", () => {
+    createConfetti();
+
+    giftSurprise.classList.add("show");
+  });
+}
+
+/* 关闭 */
+
+if (closeGiftSurprise) {
+  closeGiftSurprise.addEventListener("click", () => {
+    giftSurprise.classList.remove("show");
+  });
+}
+
+/* 点击背景也可以关 */
+
+if (giftSurprise) {
+  giftSurprise.addEventListener("click", (event) => {
+    if (event.target === giftSurprise) {
+      giftSurprise.classList.remove("show");
+    }
+  });
+}

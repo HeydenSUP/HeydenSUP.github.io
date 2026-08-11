@@ -881,3 +881,205 @@ body {
     font-size: 12px;
   }
 }
+
+/* ==========================================
+   BIRTHDAY GIFT BUTTON
+========================================== */
+
+.gift-reveal-button {
+  display: block;
+
+  margin: 32px auto 12px;
+
+  padding: 17px 30px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #e9779d, #f39fba);
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 15px 40px rgba(210, 94, 135, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gift-reveal-button:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow: 0 20px 50px rgba(210, 94, 135, 0.35);
+}
+
+/* ==========================================
+   GIFT SURPRISE POPUP
+========================================== */
+
+.gift-surprise {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9998;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(244, 186, 208, 0.38);
+
+  backdrop-filter: blur(18px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.gift-surprise.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gift-surprise-card {
+  width: min(520px, 100%);
+
+  padding: 55px 35px;
+
+  border-radius: 35px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow: 0 30px 100px rgba(190, 83, 122, 0.25);
+
+  transform: translateY(30px) scale(0.92);
+
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gift-surprise.show .gift-surprise-card {
+  transform: translateY(0) scale(1);
+}
+
+.gift-big-icon {
+  font-size: 65px;
+
+  margin-bottom: 14px;
+
+  animation: giftBounce 1.2s ease-in-out infinite;
+}
+
+@keyframes giftBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+.gift-small-text {
+  color: #dc7b9c;
+
+  letter-spacing: 4px;
+
+  font-size: 11px;
+
+  margin-bottom: 12px;
+}
+
+.gift-surprise-card h2 {
+  color: #c75f84;
+
+  font-size: clamp(30px, 5vw, 45px);
+
+  margin-bottom: 22px;
+}
+
+.anz-message {
+  color: #d94f82;
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.gift-love-message {
+  color: #936273;
+
+  font-size: 14px;
+
+  margin-bottom: 30px;
+}
+
+#closeGiftSurprise {
+  padding: 13px 23px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #ffe3ed;
+
+  color: #c76688;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+/* ==========================================
+   CONFETTI
+========================================== */
+
+.confetti-piece {
+  position: fixed;
+
+  top: -30px;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  width: 10px;
+  height: 18px;
+
+  border-radius: 3px;
+
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(115vh) rotate(720deg);
+
+    opacity: 0.8;
+  }
+}

@@ -12,18 +12,36 @@
 
   <body>
     <!-- ==================================================
-       SECTION 1
-       WHO BELONGS?
+       NAVIGATION
   ================================================== -->
 
-    <section class="hero">
-      <!-- TOP INFO -->
+    <nav class="site-nav">
+      <a href="#home" class="nav-brand"> WHO BELONGS? </a>
 
+      <div class="nav-links">
+        <a href="#migration">MIGRATION</a>
+
+        <a href="#goldmountain">NEW GOLD MOUNTAIN</a>
+
+        <a href="#ballarat">BALLARAT</a>
+
+        <a href="#policy">EXCLUSION</a>
+
+        <a href="#questions">QUESTIONS</a>
+
+        <a href="#public">PUBLIC OUTCOME</a>
+      </div>
+    </nav>
+
+    <!-- ==================================================
+       01
+       HERO
+  ================================================== -->
+
+    <section class="hero" id="home">
       <div class="hero-meta tiny">
         COUNTER INVESTIGATIONS · RMIT UNIVERSITY · 2026
       </div>
-
-      <!-- TITLE -->
 
       <div class="hero-title">
         <span class="who"> WHO </span>
@@ -31,45 +49,17 @@
         <span class="belongs"> BELONGS? </span>
       </div>
 
-      <!-- ==================================================
-         DADA IMAGE ELEMENTS
-    ================================================== -->
-
-      <img
-        src="assets/nugget.jpg"
-        class="hero-cutout hero-nugget"
-        alt="Replica of the Welcome Stranger nugget"
-      />
-
-      <img
-        src="assets/carriage-wide.jpg"
-        class="hero-cutout hero-carriage"
-        alt="Horse carriage at the goldfields"
-      />
-
-      <img
-        src="assets/gold-pan.jpg"
-        class="hero-cutout hero-pan"
-        alt="Gold panning"
-      />
-
-      <!-- ==================================================
-         POSTCARD
-    ================================================== -->
+      <!-- POSTCARD -->
 
       <div class="postcard-stage">
         <div class="postcard" id="postcard">
           <div class="postcard-inner">
-            <!-- FRONT -->
-
             <div class="postcard-face postcard-front">
               <img
                 src="assets/postcard-front.jpg"
                 alt="Who Belongs postcard front"
               />
             </div>
-
-            <!-- BACK -->
 
             <div class="postcard-face postcard-back">
               <img src="assets/ff.png" alt="Who Belongs postcard back" />
@@ -80,294 +70,764 @@
         <p class="turn">CLICK THE POSTCARD TO TURN IT OVER</p>
       </div>
 
-      <p class="question-strip">What changed? What remained? Who belongs?</p>
+      <div class="hero-intro">
+        <span class="paper-label"> A COUNTER INVESTIGATION </span>
 
-      <a href="#investigation" class="scroll"> ↓ ENTER THE INVESTIGATION </a>
-    </section>
+        <p>
+          <em>Who Belongs?</em> investigates Chinese migration, exclusion and
+          belonging in Victoria, beginning with the Gold Rush of the 1850s and
+          extending into the present.
+        </p>
 
-    <!-- ==================================================
-       SECTION 2
-       INVESTIGATION
-  ================================================== -->
-
-    <section class="investigation" id="investigation">
-      <div class="section-heading reveal">
-        <span class="paper-label"> 01 · INVESTIGATION </span>
-
-        <h2>
-          FRAGMENTS<br />
-
-          OF THE<br />
-
-          <span> GOLDFIELDS </span>
-        </h2>
-
-        <p class="intro-copy">
-          The dominant story of Victoria’s Gold Rush often focuses on
-          opportunity, wealth and development. Our investigation looks at what
-          sits beside that story: Chinese migration, labour, colonial
-          restriction and the question of who was allowed to belong.
+        <p>
+          Through photography, historical research, Dada-inspired photomontage
+          and public distribution, the project asks how Chinese experiences fit
+          within the familiar story of the Victorian Gold Rush.
         </p>
       </div>
 
-      <!-- ==================================================
-         DADA COLLAGE
-    ================================================== -->
+      <p class="question-strip">What changed? What remained? Who belongs?</p>
 
-      <div class="collage reveal">
-        <!-- JOURNEY -->
+      <a href="#migration" class="scroll"> ↓ BEGIN THE INVESTIGATION </a>
+    </section>
 
-        <img
-          src="assets/journey.jpg"
-          class="collage-piece journey"
-          alt="Chinese migration museum display"
-        />
+    <!-- ==================================================
+       02
+       GOLD -> MIGRATION
+  ================================================== -->
 
-        <div class="archive-label label-journey">
-          <strong> THE JOURNEY </strong>
+    <section class="migration section-dark" id="migration">
+      <div class="section-number">01</div>
 
-          <br /><br />
+      <div class="split-layout">
+        <div class="section-copy reveal">
+          <span class="paper-label light-label"> GOLD → MIGRATION </span>
 
-          Migration to the goldfields began long before arrival.
+          <h2>
+            GOLD<br />
+
+            CHANGED<br />
+
+            <span>VICTORIA.</span>
+          </h2>
+
+          <p class="lead">
+            Gold discoveries in Victoria in 1851 transformed the colony and drew
+            migrants from across the world.
+          </p>
+
+          <p>
+            Among them were thousands of Chinese migrants. The Australian
+            goldfields became known as
+            <strong>Xin Jin Shan</strong>, or “New Gold Mountain”,
+            distinguishing them from California’s earlier “Old Gold Mountain”.
+          </p>
+
+          <p>
+            By 1859, more than 40,000 Chinese migrants were living in Victoria.
+            State Library Victoria estimates that Chinese miners represented
+            roughly one in five men on the Victorian goldfields.
+          </p>
+
+          <div class="big-question">GOLD = OPPORTUNITY?</div>
         </div>
 
-        <!-- GOLD MINE -->
+        <div class="migration-collage reveal">
+          <figure class="dada-photo migration-nugget">
+            <img src="assets/nugget.jpg" alt="Gold nugget replica" />
 
-        <img
-          src="assets/mine-tour.jpg"
-          class="collage-piece mine"
-          alt="Gold Mine Tour"
-        />
+            <figcaption>GOLD / WEALTH / PROMISE</figcaption>
+          </figure>
 
-        <div class="archive-label label-gold">
-          <strong> GOLD </strong>
+          <figure class="dada-photo migration-journey">
+            <img
+              src="assets/journey.jpg"
+              alt="Museum display about the journey to Australia"
+            />
 
-          <br /><br />
+            <figcaption>THE JOURNEY TO AUSTRALIA</figcaption>
+          </figure>
 
-          The Gold Rush is often remembered as opportunity and discovery.
+          <div class="migration-note">
+            <strong> MIGRATION WAS NOT ONLY ARRIVAL. </strong>
+
+            <br /><br />
+
+            It involved long-distance travel, debt, uncertainty and the hope of
+            sending money back to families in China.
+          </div>
         </div>
-
-        <!-- GOLD NUGGET -->
-
-        <img
-          src="assets/nugget.jpg"
-          class="collage-piece nugget-large"
-          alt="Gold nugget replica"
-        />
-
-        <div class="gold-question">GOLD = OPPORTUNITY?</div>
-
-        <!-- FORGE -->
-
-        <img
-          src="assets/forge.jpg"
-          class="collage-piece forge"
-          alt="Goldfields forge and workshop"
-        />
-
-        <div class="archive-label label-labour">
-          <strong> LABOUR </strong>
-
-          <br /><br />
-
-          The goldfields were also places of work, survival and uncertainty.
-        </div>
-
-        <!-- GOLD PAN -->
-
-        <img
-          src="assets/gold-pan.jpg"
-          class="collage-piece pan-investigation"
-          alt="Gold panning"
-        />
       </div>
     </section>
 
     <!-- ==================================================
-       SECTION 3
-       MEMORY
+       03
+       NEW GOLD MOUNTAIN
   ================================================== -->
 
-    <section class="memory">
-      <!-- ==================================================
-         TOP AREA
-         LEFT TEXT + RIGHT CONTEXT
-    ================================================== -->
+    <section class="gold-mountain" id="goldmountain">
+      <div class="section-number">02</div>
 
-      <div class="memory-top">
-        <!-- LEFT SIDE -->
-
-        <div class="memory-heading reveal">
-          <span class="paper-label"> 02 · MEMORY </span>
+      <div class="gold-mountain-grid">
+        <div class="gold-mountain-heading reveal">
+          <span class="paper-label"> NEW GOLD MOUNTAIN </span>
 
           <h2>
-            <span class="changed">
-              WHAT<br />
-              CHANGED?
-            </span>
+            MORE THAN<br />
 
-            <br />
-
-            <span class="remained">
-              WHAT<br />
-              REMAINED?
-            </span>
+            <span>MINERS.</span>
           </h2>
 
-          <p class="memory-copy">
-            Today, the Gold Rush survives through museums, heritage sites and
-            public memory. But remembering the past also means asking whose
-            experiences are made visible, and whose are easily left out. Chinese
-            communities became part of Victoria’s social and cultural landscape,
-            while the history of exclusion remains part of the story.
+          <p class="lead">
+            Chinese migrants became part of the economic, social and cultural
+            life of colonial Victoria.
           </p>
         </div>
 
-        <!-- ==================================================
-           RIGHT SIDE
-           HISTORICAL CONTEXT + RESPONSE
-      ================================================== -->
+        <div class="research-block reveal">
+          <h3>ON THE GOLDFIELDS</h3>
 
-        <div class="memory-context reveal">
-          <!-- HISTORICAL CONTEXT -->
-
-          <div class="history-card">
-            <div class="history-label">HISTORICAL CONTEXT</div>
-
-            <h3>
-              FROM COLONIAL EXCLUSION<br />
-
-              TO
-
-              <span> WHITE AUSTRALIA </span>
-            </h3>
-
-            <div class="history-line">
-              <span class="history-year"> 1855 </span>
-
-              <p>
-                Victoria introduced the
-                <em>Chinese Immigration Act</em>, restricting Chinese migration
-                during the Gold Rush.
-              </p>
-            </div>
-
-            <div class="history-line">
-              <span class="history-year"> 1901 </span>
-
-              <p>
-                After Federation, the
-                <em>Immigration Restriction Act</em>
-                1901 formalised restrictive immigration at the national level
-                and became a cornerstone of what became known as the White
-                Australia policy.
-              </p>
-            </div>
-
-            <div class="history-line">
-              <span class="history-year"> 1975 </span>
-
-              <p>
-                The
-                <em>Racial Discrimination Act</em>
-                removed the remaining legal basis for racial discrimination in
-                Australian immigration policy.
-              </p>
-            </div>
-
-            <div class="history-question">
-              THE LAW CHANGED.<br />
-
-              BUT DID BELONGING CHANGE WITH IT?
-            </div>
-          </div>
-
-          <!-- ==================================================
-             CONSTRUCTED RESPONSE
-        ================================================== -->
-
-          <div class="response-card">
-            <span class="response-label"> CONSTRUCTED RESPONSE </span>
-
-            <div class="response-question">Q: WHAT DO YOU REMEMBER?</div>
-
-            <div class="response-fragment fragment-one">
-              “Gold. Miners. Opportunity.”
-            </div>
-
-            <div class="response-fragment fragment-two">
-              “I DON’T REMEMBER LEARNING MUCH ABOUT CHINESE MINERS.”
-            </div>
-
-            <p class="response-short">
-              “It made me realise the Gold Rush was not the same opportunity for
-              everyone.”
-            </p>
-
-            <p class="response-note">
-              This is a constructed response reflecting themes explored in our
-              research. It is not a real interview.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================================================
-         MEMORY COLLAGE
-    ================================================== -->
-
-      <div class="memory-images reveal">
-        <img
-          src="assets/gold-pan.jpg"
-          class="memory-pan"
-          alt="Gold panning activity"
-        />
-
-        <img
-          src="assets/carriage-wide.jpg"
-          class="memory-copy-image"
-          alt="Horse carriage and heritage tourism"
-        />
-
-        <img
-          src="assets/forge.jpg"
-          class="memory-main"
-          alt="Goldfields workshop and forge"
-        />
-
-        <div class="memory-stamp">PUBLIC MEMORY / ARCHIVE / TOURISM</div>
-      </div>
-
-      <!-- ==================================================
-         FINAL
-    ================================================== -->
-
-      <div class="final-question reveal">
-        <div class="final-big">
-          What changed?<br />
-
-          What remained?<br />
-
-          Who belongs?
-        </div>
-
-        <div class="footer">
           <p>
-            <strong> WHO BELONGS? </strong>
+            In 1861, more than 24,000 Chinese immigrants were living on
+            Victorian goldfields including Ballarat, Bendigo, Ararat,
+            Beechworth, Castlemaine and Maryborough.
+          </p>
 
-            <br /><br />
-
-            Junxi Guo & Boqiao Ding
-
-            <br />
-
-            Counter Investigations
-
-            <br />
-
-            RMIT University · 2026
+          <p>
+            Many worked alluvial deposits using techniques such as panning,
+            sluicing and puddling. But Chinese life in Victoria was never
+            limited to mining alone.
           </p>
         </div>
+
+        <div class="research-block tilted-block reveal">
+          <h3>COMMUNITY</h3>
+
+          <p>
+            Chinese settlements included shops, restaurants, temples, doctors,
+            letter writers and other services.
+          </p>
+
+          <p>
+            These communities created social networks and cultural institutions
+            while adapting to the conditions of colonial Victoria.
+          </p>
+        </div>
+
+        <div class="not-only-board reveal">
+          <span class="board-small"> NOT ONLY MINERS </span>
+
+          <div class="role role-1">TRADERS</div>
+
+          <div class="role role-2">GARDENERS</div>
+
+          <div class="role role-3">DOCTORS</div>
+
+          <div class="role role-4">CRAFTSPEOPLE</div>
+
+          <div class="role role-5">SHOPKEEPERS</div>
+
+          <div class="role role-6">COMMUNITY BUILDERS</div>
+        </div>
+
+        <div class="gold-mountain-bottom reveal">
+          <p>
+            As gold deposits declined, many Chinese Victorians moved into market
+            gardening, farming, grocery businesses, import and export,
+            laundries, furniture making and medicine.
+          </p>
+
+          <p>
+            By 1861, Chinese people made up nearly seven per cent of Victoria’s
+            population. Little Bourke Street developed into a major Chinese
+            cultural and commercial centre.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+       04
+       BALLARAT
+  ================================================== -->
+
+    <section class="ballarat section-dark" id="ballarat">
+      <div class="section-number">03</div>
+
+      <div class="ballarat-heading reveal">
+        <span class="paper-label light-label"> FIELD INVESTIGATION </span>
+
+        <h2>
+          BALLARAT<br />
+
+          <span> AS PUBLIC MEMORY </span>
+        </h2>
+
+        <p class="lead">
+          Ballarat is not only a place where the Gold Rush happened. It is also
+          a place where the Gold Rush is continually reconstructed, displayed
+          and remembered.
+        </p>
+      </div>
+
+      <div class="ballarat-collage reveal">
+        <figure class="field-photo mine-photo">
+          <img src="assets/mine-tour.jpg" alt="Sovereign Hill gold mine tour" />
+
+          <figcaption>
+            <strong> GOLD MINE TOUR </strong>
+
+            <br />
+
+            The underground mine becomes an immersive heritage experience.
+          </figcaption>
+        </figure>
+
+        <figure class="field-photo carriage-photo">
+          <img
+            src="assets/carriage-wide.jpg"
+            alt="Horse-drawn carriage at Sovereign Hill"
+          />
+
+          <figcaption>
+            <strong> MOVEMENT </strong>
+
+            <br />
+
+            Historic transport is reconstructed within the living museum.
+          </figcaption>
+        </figure>
+
+        <figure class="field-photo forge-photo">
+          <img src="assets/forge.jpg" alt="Historic forge at Sovereign Hill" />
+
+          <figcaption>
+            <strong> LABOUR </strong>
+
+            <br />
+
+            Workshops and trades make everyday goldfields labour visible.
+          </figcaption>
+        </figure>
+
+        <figure class="field-photo pan-photo">
+          <img src="assets/gold-pan.jpg" alt="Gold panning at Sovereign Hill" />
+
+          <figcaption>
+            <strong> PARTICIPATION </strong>
+
+            <br />
+
+            Visitors physically reproduce one of the Gold Rush’s most familiar
+            activities.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="ballarat-text reveal">
+        <div class="ballarat-card">
+          <h3>SOVEREIGN HILL</h3>
+
+          <p>
+            Sovereign Hill is a living museum built on the Ballarat goldfields.
+            Streets, mines, shops, workshops, schools and costumed
+            interpretation recreate elements of nineteenth-century life.
+          </p>
+
+          <p>
+            During our field investigation, we photographed mining spaces,
+            horse-drawn transport, historic trades and gold panning. These
+            photographs became material for our Dada photomontage.
+          </p>
+        </div>
+
+        <div class="ballarat-card red-card">
+          <h3>CHINESE PROTECTORATE CAMP</h3>
+
+          <p>
+            Chinese miners were also an important part of Ballarat’s goldfields.
+          </p>
+
+          <p>
+            The colonial government created a protectorate system that regulated
+            aspects of Chinese life on the goldfields. Sovereign Hill now
+            interprets this history through its reconstructed Chinese
+            Protectorate Camp.
+          </p>
+
+          <p>
+            The camp was completely rebuilt in 2024, adding new buildings and
+            expanded interpretation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+       05
+       EXCLUSION / WHITE AUSTRALIA
+  ================================================== -->
+
+    <section class="policy" id="policy">
+      <div class="section-number">04</div>
+
+      <div class="policy-heading reveal">
+        <span class="paper-label"> WHEN MIGRATION BECAME A “PROBLEM” </span>
+
+        <h2>
+          FROM COLONIAL<br />
+
+          EXCLUSION TO<br />
+
+          <span>WHITE AUSTRALIA.</span>
+        </h2>
+
+        <p class="lead">
+          The promise of the Gold Rush did not operate equally for everyone.
+        </p>
+
+        <p>
+          As Chinese migration increased during the 1850s, racial prejudice,
+          cultural difference and economic competition contributed to growing
+          hostility. Colonial governments responded with laws specifically
+          targeting Chinese migration.
+        </p>
+      </div>
+
+      <div class="policy-timeline reveal">
+        <article class="policy-event event-1855">
+          <div class="policy-year">1855</div>
+
+          <div class="policy-content">
+            <span class="event-label"> COLONIAL RESTRICTION </span>
+
+            <h3>Chinese Immigration Act</h3>
+
+            <p>
+              Victoria introduced legislation specifically restricting Chinese
+              immigration during the Gold Rush.
+            </p>
+
+            <p>
+              This was a colonial policy. Australia had not yet federated, and
+              each colony still controlled its own migration laws.
+            </p>
+          </div>
+        </article>
+
+        <article class="policy-event event-1901">
+          <div class="policy-year">1901</div>
+
+          <div class="policy-content">
+            <span class="event-label"> FEDERATION </span>
+
+            <h3>Immigration Restriction Act</h3>
+
+            <p>
+              After Federation, the new Commonwealth Parliament created a
+              national system of immigration restriction.
+            </p>
+
+            <p>
+              The <em>Immigration Restriction Act 1901</em>
+              became a cornerstone of the unofficial policy commonly known as
+              the
+              <strong>White Australia policy</strong>.
+            </p>
+
+            <div class="fact-strip">
+              WHITE AUSTRALIA WAS NOT THE OFFICIAL NAME OF A SINGLE LAW.
+            </div>
+
+            <p class="small-copy">
+              The term describes a broader system of laws, policies and
+              administrative practices intended to limit non-white immigration
+              and maintain Australia as a predominantly white British society.
+            </p>
+          </div>
+        </article>
+
+        <article class="policy-event event-test">
+          <div class="policy-year">50</div>
+
+          <div class="policy-content">
+            <span class="event-label"> WORDS </span>
+
+            <h3>The Dictation Test</h3>
+
+            <p>
+              Immigration officers could require a person to write 50 dictated
+              words in a European language.
+            </p>
+
+            <p>
+              The language could be chosen so that the applicant was likely to
+              fail, allowing officials to exclude people regarded as
+              “undesirable”.
+            </p>
+
+            <div class="dictation-wall">
+              <span>ARRIVE</span>
+              <span class="crossed">PASS</span>
+              <span>LANGUAGE</span>
+              <span class="red-word">EXCLUDE</span>
+              <span>TEST</span>
+              <span class="crossed">ENTER</span>
+              <span>FIFTY WORDS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="policy-event event-1958">
+          <div class="policy-year">1958</div>
+
+          <div class="policy-content">
+            <span class="event-label"> DISMANTLING </span>
+
+            <h3>Migration Act</h3>
+
+            <p>
+              The <em>Migration Act 1958</em>
+              ended the Immigration Restriction Act and abolished the dictation
+              test.
+            </p>
+          </div>
+        </article>
+
+        <article class="policy-event event-1975">
+          <div class="policy-year">1975</div>
+
+          <div class="policy-content">
+            <span class="event-label"> RACIAL DISCRIMINATION ACT </span>
+
+            <h3>The remaining legal traces</h3>
+
+            <p>
+              The <em>Racial Discrimination Act 1975</em>
+              made racial discrimination unlawful and removed the remaining
+              legal traces of the White Australia policy.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="policy-final reveal">
+        THE LAW CHANGED.
+
+        <br />
+
+        <span> BUT DID BELONGING CHANGE WITH IT? </span>
+      </div>
+    </section>
+
+    <!-- ==================================================
+       06
+       THREE QUESTIONS
+  ================================================== -->
+
+    <section class="questions section-dark" id="questions">
+      <div class="section-number">05</div>
+
+      <div class="questions-heading reveal">
+        <span class="paper-label light-label"> OUR RESPONSE </span>
+
+        <h2>
+          THREE<br />
+          QUESTIONS.
+        </h2>
+      </div>
+
+      <div class="question-grid reveal">
+        <article class="question-card changed-card">
+          <span class="question-number"> 01 </span>
+
+          <h3>WHAT CHANGED?</h3>
+
+          <h4>THE LAW.</h4>
+
+          <p>
+            Laws that explicitly restricted immigration on racial grounds were
+            gradually dismantled.
+          </p>
+
+          <p>
+            Chinese communities also became increasingly established across
+            Victoria, contributing to business, agriculture, culture, education
+            and everyday life.
+          </p>
+        </article>
+
+        <article class="question-card remained-card">
+          <span class="question-number"> 02 </span>
+
+          <h3>WHAT REMAINED?</h3>
+
+          <h4>THE QUESTION OF MEMORY.</h4>
+
+          <p>
+            Popular images of the Gold Rush still often centre gold, adventure,
+            opportunity and prosperity.
+          </p>
+
+          <p>
+            Our investigation asks how that story changes when Chinese
+            migration, discriminatory legislation and community life are placed
+            back into it.
+          </p>
+        </article>
+
+        <article class="question-card belongs-card">
+          <span class="question-number"> 03 </span>
+
+          <h3>WHO BELONGS?</h3>
+
+          <h4>BELONGING IS MORE THAN ARRIVAL.</h4>
+
+          <p>
+            Chinese migrants were present on the Victorian goldfields from the
+            early years of the Gold Rush.
+          </p>
+
+          <p>
+            But being physically present does not automatically mean being
+            equally represented in public memory.
+          </p>
+
+          <p>
+            “Who belongs?” is therefore not only a question about immigration.
+            It is also a question about whose experiences become part of the
+            stories Australia tells about itself.
+          </p>
+        </article>
+      </div>
+
+      <!-- CONSTRUCTED RESPONSE -->
+
+      <div class="constructed-response reveal">
+        <span class="constructed-label"> CONSTRUCTED PUBLIC RESPONSE </span>
+
+        <div class="response-q">
+          WHEN YOU THINK ABOUT THE VICTORIAN GOLD RUSH, WHAT COMES TO MIND?
+        </div>
+
+        <div class="response-piece response-piece-1">
+          “Gold. Miners. Opportunity.”
+        </div>
+
+        <div class="response-piece response-piece-2">
+          “I DON’T REMEMBER LEARNING MUCH ABOUT CHINESE MINERS.”
+        </div>
+
+        <blockquote>
+          “I mostly think about gold, miners and people coming here looking for
+          opportunity. I don’t remember learning much about Chinese miners or
+          the laws that restricted them. Seeing this side of the story makes the
+          idea of the Gold Rush as an equal opportunity feel much more
+          complicated.”
+        </blockquote>
+
+        <p class="constructed-note">
+          This is a constructed response created as an interpretive device based
+          on themes identified in our research. It is not a real interview.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================
+       07
+       PUBLIC OUTCOME
+  ================================================== -->
+
+    <section class="public-outcome" id="public">
+      <div class="section-number">06</div>
+
+      <div class="public-heading reveal">
+        <span class="paper-label"> FROM RESEARCH TO PUBLIC SPACE </span>
+
+        <h2>
+          PRINT.<br />
+
+          PLACE.<br />
+
+          <span> TAKE. </span>
+        </h2>
+
+        <p class="lead">
+          Research becomes a small physical object that can move beyond the
+          screen.
+        </p>
+
+        <p>
+          Our final photomontage was printed as a double-sided A6 postcard.
+          Unlike a fixed poster, the postcard can be handled, read, taken away
+          and carried into another space.
+        </p>
+      </div>
+
+      <div class="public-process reveal">
+        <div class="process-step">
+          <span> 01 </span>
+
+          <strong> PRINT </strong>
+
+          <p>Transform the digital photomontage into a physical postcard.</p>
+        </div>
+
+        <div class="process-step">
+          <span> 02 </span>
+
+          <strong> PLACE </strong>
+
+          <p>Position copies in a shared space.</p>
+        </div>
+
+        <div class="process-step">
+          <span> 03 </span>
+
+          <strong> TAKE </strong>
+
+          <p>Allow people to freely take a copy.</p>
+        </div>
+
+        <div class="process-step">
+          <span> 04 </span>
+
+          <strong> READ </strong>
+
+          <p>
+            The historical counter-narrative moves beyond its original display.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <span> 05 </span>
+
+          <strong> CONTINUE </strong>
+
+          <p>A QR code connects the postcard to this wider investigation.</p>
+        </div>
+      </div>
+
+      <!-- DOCUMENTATION PLACEHOLDERS -->
+
+      <div class="documentation-grid reveal">
+        <div class="documentation-slot">
+          <span> DOCUMENTATION 01 </span>
+
+          <strong> POSTCARDS IN PUBLIC SPACE </strong>
+
+          <p>
+            Replace this box with your final photograph of the RMIT sharing
+            area.
+          </p>
+        </div>
+
+        <div class="documentation-slot">
+          <span> DOCUMENTATION 02 </span>
+
+          <strong> TAKING THE WORK </strong>
+
+          <p>
+            Replace this box with documentation of someone taking a postcard.
+          </p>
+        </div>
+
+        <div class="documentation-slot">
+          <span> DOCUMENTATION 03 </span>
+
+          <strong> READING / INTERACTION </strong>
+
+          <p>Replace this box with documentation of the postcard being read.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+       REFERENCES
+  ================================================== -->
+
+    <section class="references" id="references">
+      <div class="references-grid">
+        <div>
+          <span class="paper-label"> REFERENCES </span>
+
+          <h2>SOURCES</h2>
+        </div>
+
+        <div class="reference-list">
+          <p>
+            Australian Government. (1901).
+            <em>Immigration Restriction Act 1901 (Cth).</em>
+            Federal Register of Legislation.
+          </p>
+
+          <p>
+            Australian Government. (1975).
+            <em>Racial Discrimination Act 1975 (Cth).</em>
+            Federal Register of Legislation.
+          </p>
+
+          <p>
+            Museum of Chinese Australian History. (n.d.).
+            <em>The museum collection.</em>
+          </p>
+
+          <p>
+            Museums Victoria. (n.d.).
+            <em>Immigration history from China to Victoria.</em>
+          </p>
+
+          <p>
+            National Archives of Australia. (n.d.).
+            <em>The Immigration Restriction Act 1901.</em>
+          </p>
+
+          <p>
+            National Archives of Australia. (n.d.).
+            <em
+              >The Immigration Restriction Act and the White Australia
+              policy.</em
+            >
+          </p>
+
+          <p>
+            National Museum of Australia. (n.d.).
+            <em>Chinese gold miners.</em>
+          </p>
+
+          <p>
+            Sovereign Hill. (n.d.).
+            <em>About Sovereign Hill.</em>
+          </p>
+
+          <p>
+            Sovereign Hill. (n.d.).
+            <em>Chinese Protectorate Camp redevelopment.</em>
+          </p>
+
+          <p>
+            State Library Victoria. (2019).
+            <em>New Gold Mountain.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="site-footer">
+        <div>
+          <strong> WHO BELONGS? </strong>
+
+          <br />
+
+          Junxi Guo & Boqiao Ding
+        </div>
+
+        <div>
+          Counter Investigations<br />
+
+          RMIT University · 2026
+        </div>
+
+        <a href="#home"> ↑ BACK TO TOP </a>
       </div>
     </section>
 

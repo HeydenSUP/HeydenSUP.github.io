@@ -1807,3 +1807,259 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==================================================
+   POSTCARD / PUBLIC DISTRIBUTION
+================================================== */
+
+.public-outcome {
+  padding: 9vw 7vw;
+
+  background: var(--light-paper);
+}
+
+/* ==================================================
+   MAIN GRID
+================================================== */
+
+.postcard-public-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    0.85fr;
+
+  gap: clamp(60px, 8vw, 140px);
+
+  align-items: start;
+}
+
+/* ==================================================
+   LEFT COPY
+================================================== */
+
+.public-heading {
+  max-width: 720px;
+}
+
+.public-heading h2 {
+  margin: 30px 0 40px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(4.5rem, 8vw, 8rem);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.06em;
+}
+
+.public-heading h2 span {
+  color: var(--red);
+}
+
+.public-heading .lead {
+  max-width: 600px;
+}
+
+.public-heading p {
+  max-width: 620px;
+
+  line-height: 1.75;
+}
+
+/* ==================================================
+   RIGHT SIDE
+================================================== */
+
+.distribution-side {
+  padding-top: 50px;
+}
+
+/* ==================================================
+   MUSEUM CARD
+================================================== */
+
+.distribution-card {
+  position: relative;
+
+  padding: 34px 34px 38px;
+
+  background: var(--black);
+
+  color: var(--light-paper);
+
+  transform: rotate(1.5deg);
+
+  box-shadow: 12px 14px 0 rgba(148, 31, 27, 0.25);
+}
+
+.distribution-label {
+  display: inline-block;
+
+  margin-bottom: 28px;
+
+  padding: 6px 9px;
+
+  background: var(--paper);
+
+  color: var(--red);
+
+  font-size: 0.56rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  transform: rotate(-2deg);
+}
+
+.distribution-card h3 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(2rem, 3.4vw, 3.7rem);
+
+  line-height: 0.94;
+
+  letter-spacing: -0.04em;
+}
+
+.museum-name {
+  margin: 15px 0 25px;
+
+  color: var(--red-light);
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 1.35rem;
+
+  font-style: italic;
+}
+
+.museum-address {
+  padding: 18px 0;
+
+  border-top: 1px solid #514b45;
+
+  border-bottom: 1px solid #514b45;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.04em;
+}
+
+.distribution-copy {
+  color: #c8c0b8;
+
+  font-size: 0.79rem;
+
+  line-height: 1.65;
+}
+
+/* ==================================================
+   QR BLOCK
+================================================== */
+
+.qr-block {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  width: 85%;
+
+  margin: 45px 0 0 auto;
+
+  padding: 18px;
+
+  background: #e4d8c5;
+
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  transform: rotate(-2deg);
+}
+
+.qr-block img {
+  width: 135px;
+
+  height: 135px;
+
+  object-fit: contain;
+
+  background: white;
+
+  padding: 7px;
+}
+
+.qr-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.qr-text strong {
+  color: var(--red);
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 1.7rem;
+}
+
+.qr-text span {
+  font-size: 0.68rem;
+
+  line-height: 1.5;
+}
+
+/* ==================================================
+   BOTTOM STATEMENT
+================================================== */
+
+.public-statement {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-top: 100px;
+
+  padding-top: 40px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.public-statement span {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  background: var(--black);
+
+  color: white;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(1.4rem, 2.5vw, 2.4rem);
+
+  transform: rotate(-1deg);
+}
+
+.public-statement span:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.public-statement .red-statement {
+  background: var(--red);
+
+  transform: rotate(-2deg);
+}

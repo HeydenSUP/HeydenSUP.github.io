@@ -2063,3 +2063,73 @@ section {
 
   transform: rotate(-2deg);
 }
+
+/* ==================================================
+   SMALL CONTACT FOOTER
+================================================== */
+
+.contact-mini {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 40px;
+
+  padding: 28px 7vw 32px;
+
+  background: var(--paper);
+
+  border-top: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.contact-mini-left {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.contact-mini-label {
+  color: var(--red);
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+.contact-mini-left strong {
+  font-family: "Playfair Display", serif;
+
+  font-size: 1.35rem;
+}
+
+.contact-mini-right {
+  display: flex;
+
+  gap: 24px;
+
+  flex-wrap: wrap;
+}
+
+.contact-mini-right a {
+  color: var(--black);
+
+  text-decoration: none;
+
+  font-size: 0.72rem;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+
+  padding-bottom: 2px;
+}
+
+.contact-mini-right a:hover {
+  color: var(--red);
+
+  border-color: var(--red);
+}
